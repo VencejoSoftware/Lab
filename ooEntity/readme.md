@@ -1,7 +1,7 @@
 [![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
 
 # ooEntiy - Object pascal entity library
-Attempt to implement the [domain model] (https://en.wikipedia.org/wiki/Domain_model) concept in OO, with interfaces to marshall/unmarshall data in entity objects
+Attempt to implement the [domain model](https://en.wikipedia.org/wiki/Domain_model) concept in OO, with interfaces to marshall/unmarshall data in entity objects
 
 ### Documentation
 If not exists folder "doc" then run the batch "build_doc". The main entry is ./doc/index.html
