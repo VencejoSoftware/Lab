@@ -1,6 +1,6 @@
 [![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
 
-# ooBytes - Object pascal bytes utils
+# ooBytes - Object pascal bytes library
 Library to formatting or converting bytes in different measures units
 
 ### Documentation
