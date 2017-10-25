@@ -1,0 +1,13 @@
+
+
+
+test.exe
+
+TScapeTranslateListTest
+- Apply
+
+TScapeTranslateTest
+- Character
+
+Ran 2 tests successfully in 0ms
+

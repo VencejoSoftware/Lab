@@ -1,0 +1,8 @@
+DiGraph Uses {
+  "ooScapeTranslate" -> "SysUtils"
+  "ooScapeTranslate" [href="ooScapeTranslate.html"]
+  "ooScapeTranslate.List" -> "SysUtils"
+  "ooScapeTranslate.List" -> "Generics.Collections"
+  "ooScapeTranslate.List" -> "ooScapeTranslate"
+  "ooScapeTranslate.List" [href="ooScapeTranslate.List.html"]
+}

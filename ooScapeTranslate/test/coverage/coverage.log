@@ -1,0 +1,399 @@
+Reading units from the following file: ..\test\code_coverage_units.lst
+Will track coverage for:ooScapeTranslate
+Will track coverage for:ooScapeTranslate.List
+Trying to start ..\test\build\debug\test.exe with the Parameters :console
+Started successfully
+Create Process:304 name:..\test\build\debug\test.exe
+Adding breakpoints for module:..\test\build\debug\test.exe
+Module name "TextTestRunner" did not match module from address name "AgiledoxTestRunner" at address:0021ECA3
+Module name "AgiledoxTestRunner" did not match module from address name "Vcl.Buttons" at address:00220360
+Module name "GUITestRunner" did not match module from address name "ooRunTest" at address:0022BF96
+Module name "ooRunTest" did not match module from address name "ooScapeTranslate" at address:0022C047
+Setting BreakPoint for module: ooScapeTranslate unit ooScapeTranslate.pas addr:2274
+Adding breakpoint for ooScapeTranslate.TScapeTranslate.Translate in ooScapeTranslate.pas
+Creating class info for ooScapeTranslate class TScapeTranslate
+TBreakPoint.Activate:
+Activate ooScapeTranslate.pas line 34 BreakPoint at:0062D2DC
+Setting BreakPoint for module: ooScapeTranslate unit ooScapeTranslate.pas addr:2275
+Adding breakpoint for ooScapeTranslate.TScapeTranslate.Translate in ooScapeTranslate.pas
+TBreakPoint.Activate:
+Activate ooScapeTranslate.pas line 35 BreakPoint at:0062D304
+Setting BreakPoint for module: ooScapeTranslate unit ooScapeTranslate.pas addr:2276
+Adding breakpoint for ooScapeTranslate.TScapeTranslate.Translate in ooScapeTranslate.pas
+TBreakPoint.Activate:
+Activate ooScapeTranslate.pas line 36 BreakPoint at:0062D314
+Setting BreakPoint for module: ooScapeTranslate unit ooScapeTranslate.pas addr:2277
+Adding breakpoint for ooScapeTranslate.TScapeTranslate.Translate in ooScapeTranslate.pas
+TBreakPoint.Activate:
+Activate ooScapeTranslate.pas line 38 BreakPoint at:0062D34D
+Setting BreakPoint for module: ooScapeTranslate unit ooScapeTranslate.pas addr:2278
+Adding breakpoint for ooScapeTranslate.TScapeTranslate.Translate in ooScapeTranslate.pas
+TBreakPoint.Activate:
+Activate ooScapeTranslate.pas line 39 BreakPoint at:0062D377
+Setting BreakPoint for module: ooScapeTranslate unit ooScapeTranslate.pas addr:2279
+Adding breakpoint for ooScapeTranslate.TScapeTranslate.Translate in ooScapeTranslate.pas
+TBreakPoint.Activate:
+Activate ooScapeTranslate.pas line 41 BreakPoint at:0062D38A
+Setting BreakPoint for module: ooScapeTranslate unit ooScapeTranslate.pas addr:2280
+Adding breakpoint for ooScapeTranslate.TScapeTranslate.Translate in ooScapeTranslate.pas
+TBreakPoint.Activate:
+Activate ooScapeTranslate.pas line 36 BreakPoint at:0062D3A2
+Setting BreakPoint for module: ooScapeTranslate unit ooScapeTranslate.pas addr:2281
+Adding breakpoint for ooScapeTranslate.TScapeTranslate.Translate in ooScapeTranslate.pas
+TBreakPoint.Activate:
+Activate ooScapeTranslate.pas line 43 BreakPoint at:0062D3A7
+Setting BreakPoint for module: ooScapeTranslate unit ooScapeTranslate.pas addr:2282
+Adding breakpoint for ooScapeTranslate.TScapeTranslate.Create in ooScapeTranslate.pas
+TBreakPoint.Activate:
+Activate ooScapeTranslate.pas line 46 BreakPoint at:0062D3D8
+Setting BreakPoint for module: ooScapeTranslate unit ooScapeTranslate.pas addr:2283
+Adding breakpoint for ooScapeTranslate.TScapeTranslate.Create in ooScapeTranslate.pas
+TBreakPoint.Activate:
+Activate ooScapeTranslate.pas line 47 BreakPoint at:0062D3F0
+Setting BreakPoint for module: ooScapeTranslate unit ooScapeTranslate.pas addr:2284
+Adding breakpoint for ooScapeTranslate.TScapeTranslate.Create in ooScapeTranslate.pas
+TBreakPoint.Activate:
+Activate ooScapeTranslate.pas line 48 BreakPoint at:0062D3FB
+Setting BreakPoint for module: ooScapeTranslate unit ooScapeTranslate.pas addr:2285
+Adding breakpoint for ooScapeTranslate.TScapeTranslate.Create in ooScapeTranslate.pas
+TBreakPoint.Activate:
+Activate ooScapeTranslate.pas line 49 BreakPoint at:0062D3FF
+Setting BreakPoint for module: ooScapeTranslate unit ooScapeTranslate.pas addr:2286
+Adding breakpoint for ooScapeTranslate.TScapeTranslate.New in ooScapeTranslate.pas
+TBreakPoint.Activate:
+Activate ooScapeTranslate.pas line 52 BreakPoint at:0062D420
+Setting BreakPoint for module: ooScapeTranslate unit ooScapeTranslate.pas addr:2287
+Adding breakpoint for ooScapeTranslate.TScapeTranslate.New in ooScapeTranslate.pas
+TBreakPoint.Activate:
+Activate ooScapeTranslate.pas line 53 BreakPoint at:0062D429
+Setting BreakPoint for module: ooScapeTranslate unit ooScapeTranslate.pas addr:2288
+Adding breakpoint for ooScapeTranslate.TScapeTranslate.New in ooScapeTranslate.pas
+TBreakPoint.Activate:
+Activate ooScapeTranslate.pas line 54 BreakPoint at:0062D449
+Module name "ooScapeTranslate" did not match module from address name "ooScapeTranslate.List" at address:0022C456
+Setting BreakPoint for module: ooScapeTranslate.List unit ooScapeTranslate.List.pas addr:2290
+Adding breakpoint for ooScapeTranslate.List.TScapeTranslateList.Add in ooScapeTranslate.List.pas
+Creating class info for ooScapeTranslate.List class TScapeTranslateList
+TBreakPoint.Activate:
+Activate ooScapeTranslate.List.pas line 41 BreakPoint at:0062EB50
+Setting BreakPoint for module: ooScapeTranslate.List unit ooScapeTranslate.List.pas addr:2291
+Adding breakpoint for ooScapeTranslate.List.TScapeTranslateList.Add in ooScapeTranslate.List.pas
+TBreakPoint.Activate:
+Activate ooScapeTranslate.List.pas line 42 BreakPoint at:0062EB53
+Setting BreakPoint for module: ooScapeTranslate.List unit ooScapeTranslate.List.pas addr:2292
+Adding breakpoint for ooScapeTranslate.List.TScapeTranslateList.Add in ooScapeTranslate.List.pas
+TBreakPoint.Activate:
+Activate ooScapeTranslate.List.pas line 43 BreakPoint at:0062EB6B
+Setting BreakPoint for module: ooScapeTranslate.List unit ooScapeTranslate.List.pas addr:2293
+Adding breakpoint for ooScapeTranslate.List.TScapeTranslateList.Apply in ooScapeTranslate.List.pas
+TBreakPoint.Activate:
+Activate ooScapeTranslate.List.pas line 48 BreakPoint at:0062EB70
+Setting BreakPoint for module: ooScapeTranslate.List unit ooScapeTranslate.List.pas addr:2294
+Adding breakpoint for ooScapeTranslate.List.TScapeTranslateList.Apply in ooScapeTranslate.List.pas
+TBreakPoint.Activate:
+Activate ooScapeTranslate.List.pas line 49 BreakPoint at:0062EB90
+Setting BreakPoint for module: ooScapeTranslate.List unit ooScapeTranslate.List.pas addr:2295
+Adding breakpoint for ooScapeTranslate.List.TScapeTranslateList.Apply in ooScapeTranslate.List.pas
+TBreakPoint.Activate:
+Activate ooScapeTranslate.List.pas line 50 BreakPoint at:0062EB99
+Setting BreakPoint for module: ooScapeTranslate.List unit ooScapeTranslate.List.pas addr:2296
+Adding breakpoint for ooScapeTranslate.List.TScapeTranslateList.Apply in ooScapeTranslate.List.pas
+TBreakPoint.Activate:
+Activate ooScapeTranslate.List.pas line 51 BreakPoint at:0062EBC8
+Setting BreakPoint for module: ooScapeTranslate.List unit ooScapeTranslate.List.pas addr:2297
+Adding breakpoint for ooScapeTranslate.List.TScapeTranslateList.Apply in ooScapeTranslate.List.pas
+TBreakPoint.Activate:
+Activate ooScapeTranslate.List.pas line 50 BreakPoint at:0062EBDF
+Setting BreakPoint for module: ooScapeTranslate.List unit ooScapeTranslate.List.pas addr:2298
+Adding breakpoint for ooScapeTranslate.List.TScapeTranslateList.Apply in ooScapeTranslate.List.pas
+TBreakPoint.Activate:
+Activate ooScapeTranslate.List.pas line 51 BreakPoint at:0062EBF8
+Setting BreakPoint for module: ooScapeTranslate.List unit ooScapeTranslate.List.pas addr:2299
+Adding breakpoint for ooScapeTranslate.List.TScapeTranslateList.Apply in ooScapeTranslate.List.pas
+TBreakPoint.Activate:
+Activate ooScapeTranslate.List.pas line 52 BreakPoint at:0062EC10
+Setting BreakPoint for module: ooScapeTranslate.List unit ooScapeTranslate.List.pas addr:2300
+Adding breakpoint for ooScapeTranslate.List.TScapeTranslateList.Create in ooScapeTranslate.List.pas
+TBreakPoint.Activate:
+Activate ooScapeTranslate.List.pas line 55 BreakPoint at:0062EC3C
+Setting BreakPoint for module: ooScapeTranslate.List unit ooScapeTranslate.List.pas addr:2301
+Adding breakpoint for ooScapeTranslate.List.TScapeTranslateList.Create in ooScapeTranslate.List.pas
+TBreakPoint.Activate:
+Activate ooScapeTranslate.List.pas line 56 BreakPoint at:0062EC4E
+Setting BreakPoint for module: ooScapeTranslate.List unit ooScapeTranslate.List.pas addr:2302
+Adding breakpoint for ooScapeTranslate.List.TScapeTranslateList.Create in ooScapeTranslate.List.pas
+TBreakPoint.Activate:
+Activate ooScapeTranslate.List.pas line 57 BreakPoint at:0062EC5D
+Setting BreakPoint for module: ooScapeTranslate.List unit ooScapeTranslate.List.pas addr:2303
+Adding breakpoint for ooScapeTranslate.List.TScapeTranslateList.Destroy in ooScapeTranslate.List.pas
+TBreakPoint.Activate:
+Activate ooScapeTranslate.List.pas line 60 BreakPoint at:0062EC78
+Setting BreakPoint for module: ooScapeTranslate.List unit ooScapeTranslate.List.pas addr:2304
+Adding breakpoint for ooScapeTranslate.List.TScapeTranslateList.Destroy in ooScapeTranslate.List.pas
+TBreakPoint.Activate:
+Activate ooScapeTranslate.List.pas line 61 BreakPoint at:0062EC83
+Setting BreakPoint for module: ooScapeTranslate.List unit ooScapeTranslate.List.pas addr:2305
+Adding breakpoint for ooScapeTranslate.List.TScapeTranslateList.Destroy in ooScapeTranslate.List.pas
+TBreakPoint.Activate:
+Activate ooScapeTranslate.List.pas line 62 BreakPoint at:0062EC8B
+Setting BreakPoint for module: ooScapeTranslate.List unit ooScapeTranslate.List.pas addr:2306
+Adding breakpoint for ooScapeTranslate.List.TScapeTranslateList.Destroy in ooScapeTranslate.List.pas
+TBreakPoint.Activate:
+Activate ooScapeTranslate.List.pas line 63 BreakPoint at:0062EC96
+Setting BreakPoint for module: ooScapeTranslate.List unit ooScapeTranslate.List.pas addr:2307
+Adding breakpoint for ooScapeTranslate.List.TScapeTranslateList.New in ooScapeTranslate.List.pas
+TBreakPoint.Activate:
+Activate ooScapeTranslate.List.pas line 66 BreakPoint at:0062ECA4
+Setting BreakPoint for module: ooScapeTranslate.List unit ooScapeTranslate.List.pas addr:2308
+Adding breakpoint for ooScapeTranslate.List.TScapeTranslateList.New in ooScapeTranslate.List.pas
+TBreakPoint.Activate:
+Activate ooScapeTranslate.List.pas line 67 BreakPoint at:0062ECA7
+Setting BreakPoint for module: ooScapeTranslate.List unit ooScapeTranslate.List.pas addr:2309
+Adding breakpoint for ooScapeTranslate.List.TScapeTranslateList.New in ooScapeTranslate.List.pas
+TBreakPoint.Activate:
+Activate ooScapeTranslate.List.pas line 68 BreakPoint at:0062ECC3
+Module AgiledoxTestRunner skipped
+Module GuiTestRunner skipped
+Module ooRunTest skipped
+Module ooScapeTranslate.List_test skipped
+Module ooScapeTranslate_test skipped
+Module System.Generics.Collections skipped
+Module System.Generics.Defaults skipped
+Module test skipped
+Module TestFramework skipped
+Module TextTestRunner skipped
+Done adding  BreakPoints
+Loading DLL at addr:77650000 (ntdll.dll) size :875520
+Done adding  BreakPoints
+UnLoading DLL:77650000
+UnLoading DLL:77650000
+UnLoading DLL:77650000
+UnLoading DLL:77650000
+Loading DLL at addr:75440000 (C:\Windows\syswow64\kernel32.dll) size :851968
+Done adding  BreakPoints
+Loading DLL at addr:753F0000 (C:\Windows\syswow64\KERNELBASE.dll) size :260096
+Done adding  BreakPoints
+Loading DLL at addr:75C40000 (C:\Windows\syswow64\oleaut32.dll) size :540160
+Done adding  BreakPoints
+Loading DLL at addr:75210000 (C:\Windows\syswow64\ole32.dll) size :1329664
+Done adding  BreakPoints
+Loading DLL at addr:76460000 (C:\Windows\syswow64\msvcrt.dll) size :648704
+Done adding  BreakPoints
+Loading DLL at addr:75CD0000 (C:\Windows\syswow64\GDI32.dll) size :299008
+Done adding  BreakPoints
+Loading DLL at addr:75DB0000 (C:\Windows\syswow64\USER32.dll) size :445440
+Done adding  BreakPoints
+Loading DLL at addr:75550000 (C:\Windows\syswow64\ADVAPI32.dll) size :466944
+Done adding  BreakPoints
+Loading DLL at addr:755F0000 (C:\Windows\SysWOW64\sechost.dll) size :77312
+Done adding  BreakPoints
+Loading DLL at addr:76510000 (C:\Windows\syswow64\RPCRT4.dll) size :622080
+Done adding  BreakPoints
+Loading DLL at addr:751B0000 (C:\Windows\syswow64\SspiCli.dll) size :88576
+Done adding  BreakPoints
+Loading DLL at addr:751A0000 (C:\Windows\syswow64\CRYPTBASE.dll) size :31232
+Done adding  BreakPoints
+Loading DLL at addr:76110000 (C:\Windows\syswow64\LPK.dll) size :22016
+Done adding  BreakPoints
+Loading DLL at addr:73CA0000 (C:\Windows\SysWOW64\version.dll) size :17408
+Done adding  BreakPoints
+Loading DLL at addr:739F0000 (C:\Windows\SysWOW64\netapi32.dll) size :52224
+Done adding  BreakPoints
+Loading DLL at addr:739E0000 (C:\Windows\SysWOW64\netutils.dll) size :17408
+Done adding  BreakPoints
+Loading DLL at addr:739C0000 (C:\Windows\SysWOW64\srvcli.dll) size :51200
+Done adding  BreakPoints
+Loading DLL at addr:739B0000 (C:\Windows\SysWOW64\wkscli.dll) size :41472
+Done adding  BreakPoints
+Loading DLL at addr:720B0000 (C:\Windows\WinSxS\x86_microsoft.windows.common-controls_6595b64144ccf1df_5.82.7601.17514_none_ec83dffa859149af\comctl32.dll) size :475648
+Done adding  BreakPoints
+Loading DLL at addr:76600000 (C:\Windows\syswow64\shell32.dll) size :3966464
+Done adding  BreakPoints
+Loading DLL at addr:763D0000 (C:\Windows\syswow64\SHLWAPI.dll) size :331264
+Done adding  BreakPoints
+Loading DLL at addr:73760000 (C:\Windows\SysWOW64\winspool.drv) size :215040
+Done adding  BreakPoints
+Couldn't find BreakPoint for exception address:776F103B
+Loading DLL at addr:75620000 (C:\Windows\SysWOW64\IMM32.DLL) size :93696
+Done adding  BreakPoints
+Loading DLL at addr:759A0000 (C:\Windows\syswow64\MSCTF.dll) size :536576
+Done adding  BreakPoints
+Loading DLL at addr:71B40000 (C:\Windows\SysWOW64\uxtheme.dll) size :226816
+Done adding  BreakPoints
+Adding coverage:ooScapeTranslate.List.pas (ooScapeTranslate.List) 66
+Clearing BreakPoint at 0062ECA4
+De-Activate ooScapeTranslate.List.pas line 66 BreakPoint at:0062ECA4
+Adding coverage:ooScapeTranslate.List.pas (ooScapeTranslate.List) 67
+Clearing BreakPoint at 0062ECA7
+De-Activate ooScapeTranslate.List.pas line 67 BreakPoint at:0062ECA7
+Adding coverage:ooScapeTranslate.List.pas (ooScapeTranslate.List) 55
+Clearing BreakPoint at 0062EC3C
+De-Activate ooScapeTranslate.List.pas line 55 BreakPoint at:0062EC3C
+Adding coverage:ooScapeTranslate.List.pas (ooScapeTranslate.List) 56
+Clearing BreakPoint at 0062EC4E
+De-Activate ooScapeTranslate.List.pas line 56 BreakPoint at:0062EC4E
+Adding coverage:ooScapeTranslate.List.pas (ooScapeTranslate.List) 57
+Clearing BreakPoint at 0062EC5D
+De-Activate ooScapeTranslate.List.pas line 57 BreakPoint at:0062EC5D
+Adding coverage:ooScapeTranslate.List.pas (ooScapeTranslate.List) 68
+Clearing BreakPoint at 0062ECC3
+De-Activate ooScapeTranslate.List.pas line 68 BreakPoint at:0062ECC3
+Adding coverage:ooScapeTranslate.pas (ooScapeTranslate) 52
+Clearing BreakPoint at 0062D420
+De-Activate ooScapeTranslate.pas line 52 BreakPoint at:0062D420
+Adding coverage:ooScapeTranslate.pas (ooScapeTranslate) 53
+Clearing BreakPoint at 0062D429
+De-Activate ooScapeTranslate.pas line 53 BreakPoint at:0062D429
+Adding coverage:ooScapeTranslate.pas (ooScapeTranslate) 46
+Clearing BreakPoint at 0062D3D8
+De-Activate ooScapeTranslate.pas line 46 BreakPoint at:0062D3D8
+Adding coverage:ooScapeTranslate.pas (ooScapeTranslate) 47
+Clearing BreakPoint at 0062D3F0
+De-Activate ooScapeTranslate.pas line 47 BreakPoint at:0062D3F0
+Adding coverage:ooScapeTranslate.pas (ooScapeTranslate) 48
+Clearing BreakPoint at 0062D3FB
+De-Activate ooScapeTranslate.pas line 48 BreakPoint at:0062D3FB
+Adding coverage:ooScapeTranslate.pas (ooScapeTranslate) 49
+Clearing BreakPoint at 0062D3FF
+De-Activate ooScapeTranslate.pas line 49 BreakPoint at:0062D3FF
+Adding coverage:ooScapeTranslate.pas (ooScapeTranslate) 54
+Clearing BreakPoint at 0062D449
+De-Activate ooScapeTranslate.pas line 54 BreakPoint at:0062D449
+Adding coverage:ooScapeTranslate.List.pas (ooScapeTranslate.List) 41
+Clearing BreakPoint at 0062EB50
+De-Activate ooScapeTranslate.List.pas line 41 BreakPoint at:0062EB50
+Adding coverage:ooScapeTranslate.List.pas (ooScapeTranslate.List) 42
+Clearing BreakPoint at 0062EB53
+De-Activate ooScapeTranslate.List.pas line 42 BreakPoint at:0062EB53
+Adding coverage:ooScapeTranslate.List.pas (ooScapeTranslate.List) 43
+Clearing BreakPoint at 0062EB6B
+De-Activate ooScapeTranslate.List.pas line 43 BreakPoint at:0062EB6B
+Adding coverage:ooScapeTranslate.List.pas (ooScapeTranslate.List) 48
+Clearing BreakPoint at 0062EB70
+De-Activate ooScapeTranslate.List.pas line 48 BreakPoint at:0062EB70
+Adding coverage:ooScapeTranslate.List.pas (ooScapeTranslate.List) 49
+Clearing BreakPoint at 0062EB90
+De-Activate ooScapeTranslate.List.pas line 49 BreakPoint at:0062EB90
+Adding coverage:ooScapeTranslate.List.pas (ooScapeTranslate.List) 50
+Clearing BreakPoint at 0062EB99
+De-Activate ooScapeTranslate.List.pas line 50 BreakPoint at:0062EB99
+Adding coverage:ooScapeTranslate.List.pas (ooScapeTranslate.List) 50
+Clearing BreakPoint at 0062EBDF
+De-Activate ooScapeTranslate.List.pas line 50 BreakPoint at:0062EBDF
+Adding coverage:ooScapeTranslate.List.pas (ooScapeTranslate.List) 51
+Clearing BreakPoint at 0062EBC8
+De-Activate ooScapeTranslate.List.pas line 51 BreakPoint at:0062EBC8
+Adding coverage:ooScapeTranslate.pas (ooScapeTranslate) 34
+Clearing BreakPoint at 0062D2DC
+De-Activate ooScapeTranslate.pas line 34 BreakPoint at:0062D2DC
+Adding coverage:ooScapeTranslate.pas (ooScapeTranslate) 35
+Clearing BreakPoint at 0062D304
+De-Activate ooScapeTranslate.pas line 35 BreakPoint at:0062D304
+Adding coverage:ooScapeTranslate.pas (ooScapeTranslate) 36
+Clearing BreakPoint at 0062D314
+De-Activate ooScapeTranslate.pas line 36 BreakPoint at:0062D314
+Adding coverage:ooScapeTranslate.pas (ooScapeTranslate) 38
+Clearing BreakPoint at 0062D34D
+De-Activate ooScapeTranslate.pas line 38 BreakPoint at:0062D34D
+Adding coverage:ooScapeTranslate.pas (ooScapeTranslate) 41
+Clearing BreakPoint at 0062D38A
+De-Activate ooScapeTranslate.pas line 41 BreakPoint at:0062D38A
+Adding coverage:ooScapeTranslate.pas (ooScapeTranslate) 36
+Clearing BreakPoint at 0062D3A2
+De-Activate ooScapeTranslate.pas line 36 BreakPoint at:0062D3A2
+Adding coverage:ooScapeTranslate.pas (ooScapeTranslate) 39
+Clearing BreakPoint at 0062D377
+De-Activate ooScapeTranslate.pas line 39 BreakPoint at:0062D377
+Adding coverage:ooScapeTranslate.pas (ooScapeTranslate) 43
+Clearing BreakPoint at 0062D3A7
+De-Activate ooScapeTranslate.pas line 43 BreakPoint at:0062D3A7
+Adding coverage:ooScapeTranslate.List.pas (ooScapeTranslate.List) 51
+Clearing BreakPoint at 0062EBF8
+De-Activate ooScapeTranslate.List.pas line 51 BreakPoint at:0062EBF8
+Adding coverage:ooScapeTranslate.List.pas (ooScapeTranslate.List) 52
+Clearing BreakPoint at 0062EC10
+De-Activate ooScapeTranslate.List.pas line 52 BreakPoint at:0062EC10
+Adding coverage:ooScapeTranslate.List.pas (ooScapeTranslate.List) 60
+Clearing BreakPoint at 0062EC78
+De-Activate ooScapeTranslate.List.pas line 60 BreakPoint at:0062EC78
+Adding coverage:ooScapeTranslate.List.pas (ooScapeTranslate.List) 61
+Clearing BreakPoint at 0062EC83
+De-Activate ooScapeTranslate.List.pas line 61 BreakPoint at:0062EC83
+Adding coverage:ooScapeTranslate.List.pas (ooScapeTranslate.List) 62
+Clearing BreakPoint at 0062EC8B
+De-Activate ooScapeTranslate.List.pas line 62 BreakPoint at:0062EC8B
+Adding coverage:ooScapeTranslate.List.pas (ooScapeTranslate.List) 63
+Clearing BreakPoint at 0062EC96
+De-Activate ooScapeTranslate.List.pas line 63 BreakPoint at:0062EC96
+EXCEPTION CODE:0EEDFADE
+Address:753FC41F
+EXCEPTION flags:00000001
+---------------Stack trace --------------
+Module : ..\test\build\debug\test.exe Stack frame:0061997F
+After line:TestFramework line 1691
+Module : ..\test\build\debug\test.exe Stack frame:0061997F
+After line:TestFramework line 1691
+Module : ..\test\build\debug\test.exe Stack frame:006182F5
+After line:TestFramework line 1201
+Module : ..\test\build\debug\test.exe Stack frame:0061856D
+After line:TestFramework line 1275
+Module : ..\test\build\debug\test.exe Stack frame:00619A88
+Exact line:TestFramework line 1722
+Module : ..\test\build\debug\test.exe Stack frame:0061D8BF
+Exact line:TestFramework line 2610
+Module : ..\test\build\debug\test.exe Stack frame:006182D3
+Exact line:TestFramework line 1198
+Module : ..\test\build\debug\test.exe Stack frame:0061856D
+After line:TestFramework line 1275
+Module : ..\test\build\debug\test.exe Stack frame:00619A88
+Exact line:TestFramework line 1722
+Module : ..\test\build\debug\test.exe Stack frame:00618E3D
+After line:TestFramework line 1425
+Module : ..\test\build\debug\test.exe Stack frame:00619492
+Exact line:TestFramework line 1525
+Module : ..\test\build\debug\test.exe Stack frame:0061E53C
+Exact line:TestFramework line 2908
+Module : ..\test\build\debug\test.exe Stack frame:006210C5
+After line:AgiledoxTestRunner line 300
+Module : ..\test\build\debug\test.exe Stack frame:00621209
+After line:AgiledoxTestRunner line 324
+Module : ..\test\build\debug\test.exe Stack frame:0062CFF7
+Exact line:ooRunTest line 68
+Module : C:\Windows\syswow64\kernel32.dll Stack frame:754533AA
+Module : C:\Windows\syswow64\kernel32.dll - no MAP information exists
+Module : ntdll.dll Stack frame:77689F72
+Module : ntdll.dll - no MAP information exists
+Module : ntdll.dll Stack frame:77689F45
+Module : ntdll.dll - no MAP information exists
+---------------End of Stack trace --------------
+Process 304 exiting. Exit code :0
+Finished processing debug events
+ProcedureReport
+Generating reports
+Generating coverage report
+Source dir: C:\develop\ooLib\ooLib\ooScapeTranslate\code\
+Output dir: ..\test\coverage\
+Generating xml coverage report
+Generating EMMA file
+Generating EMMA data for module: ModuleInfo[ modulename=ooScapeTranslate.List, filename=ooScapeTranslate.List.pas ]
+Generating EMMA data for class: TScapeTranslateList
+Generating EMMA data for method: Add l:3 c:3
+Generating EMMA data for method: New l:3 c:3
+Generating EMMA data for method: Apply l:5 c:5
+Generating EMMA data for method: Destroy l:4 c:4
+Generating EMMA data for method: Create l:3 c:3
+Generating EMMA data for module: ModuleInfo[ modulename=ooScapeTranslate, filename=ooScapeTranslate.pas ]
+Generating EMMA data for class: TScapeTranslate
+Generating EMMA data for method: Translate l:7 c:7
+Generating EMMA data for method: New l:3 c:3
+Generating EMMA data for method: Create l:4 c:4
+Emma file generated
+Finished generating reports
+
+Summary:
+
++-----------+-----------+-----------+
+|   Lines   |  Covered  | Covered % |
++-----------+-----------+-----------+
+|        32 |        32 |     100 % |
++-----------+-----------+-----------+
