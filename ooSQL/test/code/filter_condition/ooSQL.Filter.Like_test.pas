@@ -30,8 +30,8 @@ implementation
 
 procedure TSQLConditionLikeTest.FieldTestLike200;
 begin
-  CheckEquals('FieldTest LIKE ''200%''', TSQLConditionLike.New('FieldTest',
-      QuotedStr('200%')).Parse(TSQLFilterSimpleFormatter.New));
+  CheckEquals('FieldTest LIKE ''200%''', TSQLConditionLike.New('FieldTest', '200%').Parse(TSQLFilterSimpleFormatter.New)
+    );
 end;
 
 procedure TSQLConditionLikeTest.FieldTestIsEmpty;

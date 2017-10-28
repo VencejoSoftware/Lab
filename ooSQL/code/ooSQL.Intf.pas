@@ -15,7 +15,7 @@ type
   ISQL = interface
     ['{54C73588-FA72-4FA3-8803-2B6857411C7D}']
     function SQL: String;
-    function Parse(const Parameters: array of ISQLParameter; const Beautify: ITextBeautify = nil): String;
+    function Parse(const Parameters: array of ISQLParameter; const Beautify: ITextBeautify): String;
   end;
 
 implementation

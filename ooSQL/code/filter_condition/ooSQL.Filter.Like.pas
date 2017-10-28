@@ -56,7 +56,7 @@ end;
 
 function TSQLConditionLike.Parse(const Beautify: ITextBeautify): String;
 begin
-  Result := Beautify.Apply([Key, 'LIKE', _Value]);
+  Result := Beautify.Apply([Key, 'LIKE', QuotedStr(_Value)])
 end;
 
 constructor TSQLConditionLike.Create(const Key, Value: String);

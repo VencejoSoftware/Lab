@@ -27,7 +27,7 @@ type
     function ApplyFilter(const SQL: String; const Beautify: ITextBeautify): String;
   public
     function SQL: String;
-    function Parse(const Parameters: array of ISQLParameter; const Beautify: ITextBeautify = nil): String;
+    function Parse(const Parameters: array of ISQLParameter; const Beautify: ITextBeautify): String;
 
     constructor Create(const SQL: String; const Filter: IFilter; const Sort: ISort);
 

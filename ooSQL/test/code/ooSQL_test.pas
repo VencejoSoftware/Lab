@@ -9,9 +9,9 @@ interface
 
 uses
   SysUtils,
+  ooText.Beautify.Intf, ooSQL.Filter.SimpleFormatter,
   ooFilter,
   ooFilter.Condition.Joined,
-  ooSQL.Filter.SimpleFormatter,
   ooSQL.Filter.JoinNone, ooSQL.Filter.JoinWhere, ooSQL.Filter.JoinAnd,
   ooSQL.Filter.Equal,
   ooSQL.Parameter.Intf,
@@ -28,6 +28,7 @@ type
   TSQLTest = class(TTestCase)
   private
     _SQL: ISQL;
+    function Beautify: ITextBeautify;
   published
     procedure ParseSelect;
     procedure ParseUpdate;
@@ -38,6 +39,11 @@ type
   end;
 
 implementation
+
+function TSQLTest.Beautify: ITextBeautify;
+begin
+  Result := TSQLFilterSimpleFormatter.New;
+end;
 
 procedure TSQLTest.NewSQL;
 const
@@ -56,7 +62,7 @@ const
 begin
   _SQL := TSQL.New(SQL_TEST);
   CheckEquals(SQL_TEST_RESULT, _SQL.Parse([TSQLParameterStr.New('FIELD_STR1', 'ValueString'),
-      TSQLParameterInt.New('FIELD_INT1', 999), TSQLParameterBool.New('FIELD_BOOL1', False)]));
+      TSQLParameterInt.New('FIELD_INT1', 999), TSQLParameterBool.New('FIELD_BOOL1', False)], Beautify));
 end;
 
 procedure TSQLTest.ParseSelectFilterWithoutWhere;
@@ -70,7 +76,7 @@ begin
   Filter := TFilter.New(TSQLJoinAnd.New);
   Filter.AddElement(TFilterConditionJoined.New(TSQLJoinNone.New, TSQLConditionEqual.New('Field1', ':VALUE')));
   _SQL := TSQL.New(SQL_TEST, Filter);
-  CheckEquals(SQL_TEST_RESULT, _SQL.Parse([], TSQLFilterSimpleFormatter.New));
+  CheckEquals(SQL_TEST_RESULT, _SQL.Parse([], Beautify));
 end;
 
 procedure TSQLTest.ParseSelectFilterWithWhere;
@@ -86,8 +92,7 @@ begin
   Filter.AddElement(TFilterConditionJoined.New(TSQLJoinNone.New, TSQLConditionEqual.New('Field1', ':VALUE')));
   _SQL := TSQL.New(SQL_TEST, Filter);
   CheckEquals(SQL_TEST_RESULT, _SQL.Parse([TSQLParameterStr.New('FIELD_STR1', 'ValueString'),
-      TSQLParameterInt.New('FIELD_INT1', 999), TSQLParameterBool.New('FIELD_BOOL1', False)],
-      TSQLFilterSimpleFormatter.New));
+      TSQLParameterInt.New('FIELD_INT1', 999), TSQLParameterBool.New('FIELD_BOOL1', False)], Beautify));
 end;
 
 procedure TSQLTest.ParseSelectFilterWithWhereAndOrderBy;
@@ -104,8 +109,7 @@ begin
   Filter.AddElement(TFilterConditionJoined.New(TSQLJoinNone.New, TSQLConditionEqual.New('Field1', ':VALUE')));
   _SQL := TSQL.New(SQL_TEST, Filter);
   CheckEquals(SQL_TEST_RESULT, _SQL.Parse([TSQLParameterStr.New('FIELD_STR1', 'ValueString'),
-      TSQLParameterInt.New('FIELD_INT1', 999), TSQLParameterBool.New('FIELD_BOOL1', False)],
-      TSQLFilterSimpleFormatter.New));
+      TSQLParameterInt.New('FIELD_INT1', 999), TSQLParameterBool.New('FIELD_BOOL1', False)], Beautify));
 end;
 
 procedure TSQLTest.ParseUpdate;
@@ -115,7 +119,7 @@ const
 begin
   _SQL := TSQL.New(SQL_TEST);
   CheckEquals(SQL_TEST_RESULT, _SQL.Parse([TSQLParameterText.New('FIELD_NAME_STR1', 'FIELD1'),
-      TSQLParameterStr.New('FIELD_STR1', 'ValueString')]));
+      TSQLParameterStr.New('FIELD_STR1', 'ValueString')], Beautify));
 end;
 
 initialization
