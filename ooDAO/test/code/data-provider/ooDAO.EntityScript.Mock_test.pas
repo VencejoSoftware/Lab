@@ -19,7 +19,6 @@ uses
 type
   TDAOEntityScriptTest = class(TTestCase)
   published
-    procedure BuildNewEntity;
     procedure SelectOfEntityMock;
     procedure SelectListOfEntityMock;
     procedure InsertOfEntityMock;
@@ -28,16 +27,6 @@ type
   end;
 
 implementation
-
-procedure TDAOEntityScriptTest.BuildNewEntity;
-var
-  DAOEntityMockScripts: IDAOEntityMockScripts;
-  Entity: IEntityMock;
-begin
-  DAOEntityMockScripts := TDAOEntityMockScripts.New;
-  Entity := DAOEntityMockScripts.NewEntity;
-  CheckTrue(Assigned(Entity));
-end;
 
 procedure TDAOEntityScriptTest.DeleteOfEntityMock;
 var

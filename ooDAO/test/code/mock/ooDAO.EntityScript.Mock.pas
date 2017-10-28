@@ -9,6 +9,7 @@ interface
 
 uses
   SysUtils,
+  ooText.Beautify.Intf, ooSQL.Filter.SimpleFormatter,
   ooEntity.Intf,
   ooFilter,
   ooSQL, ooSQL.Parameter.Intf, ooSQL.Parameter.Int, ooSQL.Parameter.Str,
@@ -19,8 +20,9 @@ type
   IDAOEntityMockScripts = IDAOEntityScript<IEntityMock>;
 
   TDAOEntityMockScripts = class sealed(TInterfacedObject, IDAOEntityMockScripts)
+  private
+    function Beautify: ITextBeautify;
   public
-    function NewEntity: IEntityMock;
     function Select(const Entity: IEntityMock; const Filter: IFilter): String;
     function SelectList(const Filter: IFilter): String;
     function Insert(const Entity: IEntityMock): String;
@@ -32,26 +34,31 @@ type
 
 implementation
 
+function TDAOEntityMockScripts.Beautify: ITextBeautify;
+begin
+  Result := TSQLFilterSimpleFormatter.New;
+end;
+
 function TDAOEntityMockScripts.Delete(const Entity: IEntityMock): String;
 const
   SQL_DELETE = 'DELETE FROM {{ENTITY.MOCK}} WHERE ID = :ID;';
 begin
-  Result := TSQL.New(SQL_DELETE).Parse([TSQLParameterInt.New('ID', Entity.ID)]);
+  Result := TSQL.New(SQL_DELETE).Parse([TSQLParameterInt.New('ID', Entity.ID)], Beautify);
 end;
 
 function TDAOEntityMockScripts.Insert(const Entity: IEntityMock): String;
 const
   SQL_INSERT = 'INSERT INTO {{ENTITY.MOCK}}(ID, FIELD1) VALUES (:ID, :FIELD1);';
 begin
-  Result := TSQL.New(SQL_INSERT).Parse([TSQLParameterInt.New('ID', Entity.ID), TSQLParameterStr.New('FIELD1',
-    Entity.Value)]);
+  Result := TSQL.New(SQL_INSERT).Parse([TSQLParameterInt.New('ID', Entity.ID),
+    TSQLParameterStr.New('FIELD1', Entity.Value)], Beautify);
 end;
 
 function TDAOEntityMockScripts.Select(const Entity: IEntityMock; const Filter: IFilter): String;
 const
   SQL_SELECT = 'SELECT ID, FIELD1 FROM {{ENTITY.MOCK}} WHERE ID = :ID;';
 begin
-  Result := TSQL.New(SQL_SELECT).Parse([TSQLParameterInt.New('ID', Entity.ID)]);
+  Result := TSQL.New(SQL_SELECT).Parse([TSQLParameterInt.New('ID', Entity.ID)], Beautify);
 end;
 
 function TDAOEntityMockScripts.SelectList(const Filter: IFilter): String;
@@ -64,12 +71,7 @@ const
   SQL_UPDATE = 'UPDATE {{ENTITY.MOCK}} SET FIELD1 = :FIELD1 WHERE ID = :ID;';
 begin
   Result := TSQL.New(SQL_UPDATE).Parse([TSQLParameterStr.New('FIELD1', Entity.Value),
-    TSQLParameterInt.New('ID', Entity.ID)]);
-end;
-
-function TDAOEntityMockScripts.NewEntity: IEntityMock;
-begin
-  Result := TEntityMock.New(0, '');
+    TSQLParameterInt.New('ID', Entity.ID)], Beautify);
 end;
 
 class function TDAOEntityMockScripts.New: IDAOEntityMockScripts;

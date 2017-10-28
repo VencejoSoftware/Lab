@@ -14,7 +14,6 @@ uses
 type
   IDAOEntityScript<T: IEntity> = interface
     ['{20D97EEE-95EB-4BC8-9A15-13C138B6D7F4}']
-    function NewEntity: T;
     function Select(const Entity: T; const Filter: IFilter): String;
     function SelectList(const Filter: IFilter): String;
     function Insert(const Entity: T): String;

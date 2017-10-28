@@ -32,6 +32,7 @@ type
     procedure TearDown; override;
     procedure PrepareAmbient;
   published
+    procedure BuildNewEntity;
     procedure SaveMock;
     procedure ModifyMock;
     procedure DeleteMock;
@@ -40,6 +41,16 @@ type
   end;
 
 implementation
+
+procedure TDAODataProviderTest.BuildNewEntity;
+var
+  DAODataProvider: IDAODataProviderMock;
+  Entity: IEntityMock;
+begin
+  DAODataProvider := TDAODataProviderMock.New(_Connection);
+  Entity := DAODataProvider.NewEntity;
+  CheckTrue(Assigned(Entity));
+end;
 
 procedure TDAODataProviderTest.CreateDB(const Settings: IConnectionFirebirdSettings);
 begin

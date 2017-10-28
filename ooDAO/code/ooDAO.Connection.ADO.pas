@@ -10,6 +10,7 @@ interface
 uses
   Classes, SysUtils, DB,
   ADODB,
+  ooSQL.Filter.SimpleFormatter,
   ooSQL.Parameter.Intf, ooSQL,
   ooDAO.Connection.Intf;
 
@@ -132,7 +133,7 @@ var
   SQLPrepared: String;
 begin
   Query := TADOQuery.Create(ADOConnection);
-  SQLPrepared := PrepareSQL(TSQL.New(SQL).Parse(Parameters));
+  SQLPrepared := PrepareSQL(TSQL.New(SQL).Parse(Parameters, TSQLFilterSimpleFormatter.New));
   Query.DisableControls;
   Query.SQL.Text := SQLPrepared;
   Query.Connection := ADOConnection;

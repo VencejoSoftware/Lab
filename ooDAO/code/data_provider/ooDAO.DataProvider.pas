@@ -24,25 +24,29 @@ type
     function Update(const Entity: T): Boolean;
     function Delete(const Entity: T): Boolean;
     function InsertList(const List: TList<T>): Boolean;
+    function Select(const Entity: T; const Filter: IFilter): Boolean;
+    function SelectList(const List: TList<T>; const Filter: IFilter): Boolean;
+    function NewEntity: T;
+  end;
 
-    procedure SelectList(const List: TList<T>; const Filter: IFilter);
-    procedure Select(const Entity: T; const Filter: IFilter);
+  EDAODataProvider = class sealed(Exception)
   end;
 
   TDAODataProvider<T: IEntity> = class(TInterfacedObject, IDAODataProvider<T>)
   strict private
     _Connection: IDAOConnection;
     _EntityScript: IDAOEntityScript<T>;
+  private
+    procedure DataSetToList(const DataInput: IDataInput; const List: TList<T>);
+  protected
+    function NewEntity: T; virtual; abstract;
   public
     function Insert(const Entity: T): Integer;
-    function InsertList(const List: TList<T>): Boolean; virtual;
     function Update(const Entity: T): Boolean;
     function Delete(const Entity: T): Boolean;
-
-    procedure SelectList(const List: TList<T>; const Filter: IFilter);
-    procedure Select(const Entity: T; const Filter: IFilter);
-    procedure DataSetToList(const DataInput: IDataInput; const List: TList<T>);
-
+    function InsertList(const List: TList<T>): Boolean; virtual;
+    function Select(const Entity: T; const Filter: IFilter): Boolean;
+    function SelectList(const List: TList<T>; const Filter: IFilter): Boolean;
     constructor Create(const Connection: IDAOConnection; const EntityScript: IDAOEntityScript<T>);
   end;
 
@@ -61,20 +65,6 @@ begin
     _Connection.RollbackTransaction;
     raise ;
   end;
-end;
-
-function TDAODataProvider<T>.InsertList(const List: TList<T>): Boolean;
-var
-  Entity: T;
-  SaveResult: Integer;
-  Script: String;
-begin
-  Result := False;
-  Script := EmptyStr;
-  for Entity in List do
-    Script := Script + _EntityScript.Insert(Entity) + sLineBreak;
-  _Connection.ExecuteScript(Script, SaveResult, False);
-  Result := SaveResult > 0;
 end;
 
 function TDAODataProvider<T>.Update(const Entity: T): Boolean;
@@ -111,20 +101,39 @@ begin
   end;
 end;
 
-procedure TDAODataProvider<T>.Select(const Entity: T; const Filter: IFilter);
+function TDAODataProvider<T>.InsertList(const List: TList<T>): Boolean;
+var
+  Entity: T;
+  RowsAffected: Integer;
+  Script: String;
+begin
+  Result := False;
+  Script := EmptyStr;
+  for Entity in List do
+    Script := Script + _EntityScript.Insert(Entity) + sLineBreak;
+  _Connection.ExecuteScript(Script, RowsAffected, False);
+  Result := RowsAffected = List.Count;
+end;
+
+function TDAODataProvider<T>.Select(const Entity: T; const Filter: IFilter): Boolean;
 var
   Script: String;
   DataSet: TDataSet;
   DataInput: IDataInput;
 begin
+  Result := False;
   Script := _EntityScript.Select(Entity, Filter);
   if _Connection.BuildDataset(DataSet, Script, []) then
   begin
     try
       if DataSet.RecordCount > 1 then
-        raise Exception.Create('Multiples rows in dataset');
-      DataInput := TDatasetDataInput.New(DataSet);
-      Entity.Unmarshal(DataInput);
+        raise EDAODataProvider.Create('Multiples rows in dataset');
+      Result := DataSet.RecordCount = 1;
+      if Result then
+      begin
+        DataInput := TDatasetDataInput.New(DataSet);
+        Entity.Unmarshal(DataInput);
+      end;
     finally
       DataSet.Free;
     end;
@@ -135,32 +144,37 @@ procedure TDAODataProvider<T>.DataSetToList(const DataInput: IDataInput; const L
 var
   Entity: T;
 begin
-  Entity := _EntityScript.NewEntity;
+  Entity := NewEntity;
   Entity.Unmarshal(DataInput);
   List.Add(Entity);
 end;
 
-procedure TDAODataProvider<T>.SelectList(const List: TList<T>; const Filter: IFilter);
+function TDAODataProvider<T>.SelectList(const List: TList<T>; const Filter: IFilter): Boolean;
 var
   Script: String;
   DataSet: TDataSet;
   DataInput: IDataInput;
 begin
+  Result := False;
   List.Clear;
   Script := _EntityScript.SelectList(Filter);
   if _Connection.BuildDataset(DataSet, Script, []) then
   begin
-    DataInput := TDatasetDataInput.New(DataSet);
-    try
-      DataSet.DisableControls;
-      while not DataSet.Eof do
-      begin
-        DataSetToList(DataInput, List);
-        DataSet.Next;
+    Result := DataSet.RecordCount > 0;
+    if Result then
+    begin
+      DataInput := TDatasetDataInput.New(DataSet);
+      try
+        DataSet.DisableControls;
+        while not DataSet.Eof do
+        begin
+          DataSetToList(DataInput, List);
+          DataSet.Next;
+        end;
+      finally
+        DataSet.EnableControls;
+        DataSet.Free;
       end;
-    finally
-      DataSet.EnableControls;
-      DataSet.Free;
     end;
   end;
 end;

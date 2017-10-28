@@ -17,15 +17,22 @@ type
   IDAODataProviderMock = IDAODataProvider<IEntityMock>;
 
   TDAODataProviderMock = class(TDAODataProvider<IEntityMock>, IDAODataProviderMock)
+  protected
+    function NewEntity: IEntityMock; override;
   public
     class function New(const Connection: IDAOConnection): IDAODataProviderMock;
   end;
 
 implementation
 
+function TDAODataProviderMock.NewEntity: IEntityMock;
+begin
+  Result := TEntityMock.New(0, '');
+end;
+
 class function TDAODataProviderMock.New(const Connection: IDAOConnection): IDAODataProviderMock;
 begin
-  Result := TDAODataProvider<IEntityMock>.Create(Connection, TDAOEntityMockScripts.New);
+  Result := TDAODataProviderMock.Create(Connection, TDAOEntityMockScripts.New);
 end;
 
 end.
