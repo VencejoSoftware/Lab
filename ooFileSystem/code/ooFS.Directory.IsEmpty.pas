@@ -1,8 +1,15 @@
+{$REGION 'documentation'}
 {
   Copyright (c) 2016, Vencejo Software
   Distributed under the terms of the Modified BSD License
   The full license is distributed with this software
 }
+{
+  Command to checks if directory is empty
+  @created(10/02/2016)
+  @author Vencejo Software <www.vencejosoft.com>
+}
+{$ENDREGION}
 unit ooFS.Directory.IsEmpty;
 
 interface
@@ -13,9 +20,32 @@ uses
   ooFS.Command.Intf;
 
 type
+{$REGION 'documentation'}
+{
+  @abstract(Implementation of command to checks if directory is empty)
+  Checks if directory has some archives or another directories
+}
+{$ENDREGION}
   IFSDirectoryIsEmpty = interface(IFSCommand<Boolean>)
     ['{EE614F18-5741-4F9E-96D7-D8695AEF8FC4}']
   end;
+{$REGION 'documentation'}
+{
+  @abstract(Implementation of @link(IFSDirectoryIsEmpty))
+  @member(
+    Execute Run check isempty command
+    @return(@true if is empty, @false if not)
+  )
+  @member(
+    Create Object constructor
+    @param(Directory @link(IFSDirectory Path))
+  )
+  @member(
+    New Create a new @classname as interface
+    @param(Directory @link(IFSDirectory Path))
+  )
+}
+{$ENDREGION}
 
   TFSDirectoryIsEmpty = class sealed(TInterfacedObject, IFSDirectoryIsEmpty)
   strict private

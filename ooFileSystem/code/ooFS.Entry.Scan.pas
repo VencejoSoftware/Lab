@@ -1,8 +1,15 @@
+{$REGION 'documentation'}
 {
   Copyright (c) 2016, Vencejo Software
   Distributed under the terms of the Modified BSD License
   The full license is distributed with this software
 }
+{
+  Command to scan a file system returning entries list
+  @created(10/02/2016)
+  @author Vencejo Software <www.vencejosoft.com>
+}
+{$ENDREGION}
 unit ooFS.Entry.Scan;
 
 interface
@@ -13,9 +20,55 @@ uses
   ooFS.Entry, ooFS.Directory, ooFS.Archive;
 
 type
+{$REGION 'documentation'}
+{
+  @abstract(Implementation of command to scan file system)
+  Scan specified path to return a list of entries, using a filter mask
+}
+{$ENDREGION}
   IFSEntryScan = interface(IFSCommand<Integer>)
     ['{9D3749A6-724D-4199-B675-08A577B98069}']
   end;
+{$REGION 'documentation'}
+{
+  @abstract(Implementation of @link(IFSEntryScan))
+  @member(
+    IsFolder Check if file system entry is a directory
+    @param(SearchRec File system struct pointer)
+    @return(@true if is a kind file, @false if not)
+  )
+  @member(
+    IsFile Check if file system entry is an archive
+    @param(SearchRec File system struct pointer)
+    @return(@true if is a kind file, @false if not)
+  )
+  @member(
+    ScanPath Scan specified path, with the chance to recursively auto call
+    @param(Path @link(IFSEntry Path to scan))
+    @param(EntryList @link(TFSEntryList List to fill with the founded entries))
+    @param(Recursively Scan recursively)
+    @param(FilterMask Mask to scan filter)
+  )
+  @member(
+    Execute Run scan command
+    @return(Integer with the count of archives founded)
+  )
+  @member(
+    Create Object constructor
+    @param(Path @link(IFSEntry Path to scan))
+    @param(EntryList @link(TFSEntryList List to fill with the founded entries))
+    @param(Recursively Scan recursively)
+    @param(FilterMask Mask to scan filter)
+  )
+  @member(
+    New Create a new @classname as interface
+    @param(Path @link(IFSEntry Path to scan))
+    @param(EntryList @link(TFSEntryList List to fill with the founded entries))
+    @param(Recursively Scan recursively)
+    @param(FilterMask Mask to scan filter)
+  )
+}
+{$ENDREGION}
 
   TFSEntryScan = class sealed(TInterfacedObject, IFSEntryScan)
   strict private

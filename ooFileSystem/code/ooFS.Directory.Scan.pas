@@ -1,8 +1,15 @@
+{$REGION 'documentation'}
 {
   Copyright (c) 2016, Vencejo Software
   Distributed under the terms of the Modified BSD License
   The full license is distributed with this software
 }
+{
+  Command to scan a file system returning directories list
+  @created(10/02/2016)
+  @author Vencejo Software <www.vencejosoft.com>
+}
+{$ENDREGION}
 unit ooFS.Directory.Scan;
 
 interface
@@ -13,9 +20,46 @@ uses
   ooFS.Entry, ooFS.Directory;
 
 type
+{$REGION 'documentation'}
+{
+  @abstract(Implementation of command to scan a file system returning directories list)
+  Scan specified path to return a list of directories
+}
+{$ENDREGION}
   IFSDirectoryScan = interface(IFSCommand<Integer>)
     ['{719B95CE-7C05-4266-9455-1E977E492133}']
   end;
+{$REGION 'documentation'}
+{
+  @abstract(Implementation of @link(IFSDirectoryScan))
+  @member(
+    IsRealDirectory Check for relative parented prefix
+    @return(@true if not has parent prefix, @false if not)
+  )
+  @member(
+    ScanPath Scan specified path, with the chance to recursively auto call
+    @param(Path @link(IFSEntry Path to scan))
+    @param(DirectoryList @link(TFSDirectoryList List to fill with the founded directories))
+    @param(Recursively Scan recursively)
+  )
+  @member(
+    Execute Run scan command
+    @return(Integer with the count of directories founded)
+  )
+  @member(
+    Create Object constructor
+    @param(Path @link(IFSEntry Path to scan))
+    @param(DirectoryList @link(TFSDirectoryList List to fill with the founded directories))
+    @param(Recursively Scan recursively)
+  )
+  @member(
+    New Create a new @classname as interface
+    @param(Path @link(IFSEntry Path to scan))
+    @param(DirectoryList @link(TFSDirectoryList List to fill with the founded directories))
+    @param(Recursively Scan recursively)
+  )
+}
+{$ENDREGION}
 
   TFSDirectoryScan = class sealed(TInterfacedObject, IFSDirectoryScan)
   strict private

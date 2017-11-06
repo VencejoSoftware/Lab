@@ -1,8 +1,15 @@
+{$REGION 'documentation'}
 {
   Copyright (c) 2016, Vencejo Software
   Distributed under the terms of the Modified BSD License
   The full license is distributed with this software
 }
+{
+  Command to count lines in file
+  @created(10/02/2016)
+  @author Vencejo Software <www.vencejosoft.com>
+}
+{$ENDREGION}
 unit ooFS.Archive.CountLines;
 
 interface
@@ -13,9 +20,32 @@ uses
   ooFS.Command.Intf;
 
 type
+{$REGION 'documentation'}
+{
+  @abstract(Implementation of command to count lines in file)
+  Calculate the amount of lines in file
+}
+{$ENDREGION}
   IFSArchiveCountLines = interface(IFSCommand<Integer>)
     ['{B416BE24-9862-418C-9D55-464FF781D74C}']
   end;
+{$REGION 'documentation'}
+{
+  @abstract(Implementation of @link(IFSArchiveCountLines))
+  @member(
+    Execute Run the count lines command
+    @return(Integer with the counted lines)
+  )
+  @member(
+    Create Object constructor
+    @param(Archive @link(IFSArchive Source archive))
+  )
+  @member(
+    New Create a new @classname as interface
+    @param(Archive @link(IFSArchive Source archive))
+  )
+}
+{$ENDREGION}
 
   TFSArchiveCountLines = class sealed(TInterfacedObject, IFSArchiveCountLines)
   strict private

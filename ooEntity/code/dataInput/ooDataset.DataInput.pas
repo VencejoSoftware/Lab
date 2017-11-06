@@ -34,7 +34,7 @@ implementation
 
 function TDatasetDataInput.ReadBoolean(const Key: IKey): Boolean;
 begin
-  Result := _Dataset.FieldByName(Key.AsString).AsBoolean;
+  Result := _Dataset.FieldByName(Key.AsString).AsInteger <> 0;
 end;
 
 function TDatasetDataInput.ReadChar(const Key: IKey): Char;

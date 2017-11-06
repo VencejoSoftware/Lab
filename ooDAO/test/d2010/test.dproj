@@ -49,7 +49,7 @@
 			<DelphiCompile Include="test.dpr">
 				<MainSource>MainSource</MainSource>
 			</DelphiCompile>
-			<DCCReference Include="..\code\data-provider\ooDAO.DataProvider.Mock_test.pas"/>
+			<DCCReference Include="..\code\data-provider\ooDAO.DataProvider_test.pas"/>
 			<DCCReference Include="..\code\mock\ooEntity.Mock.pas"/>
 			<DCCReference Include="..\code\mock\ooMock.DataInput.pas"/>
 			<DCCReference Include="..\code\ooDAO.Connection.Firebird_test.pas"/>
@@ -57,7 +57,7 @@
 			<DCCReference Include="..\code\ooDAO.Connection.ADO_test.pas"/>
 			<DCCReference Include="..\code\mock\ooDAO.EntityScript.Mock.pas"/>
 			<DCCReference Include="..\code\mock\ooDAO.DataProvider.Mock.pas"/>
-			<DCCReference Include="..\code\data-provider\ooDAO.EntityScript.Mock_test.pas"/>
+			<DCCReference Include="..\code\data-provider\ooDAO.EntityScript_test.pas"/>
 			<DCCReference Include="..\code\data-provider\ooDAO.DataQuery_test.pas"/>
 			<BuildConfiguration Include="Base">
 				<Key>Base</Key>

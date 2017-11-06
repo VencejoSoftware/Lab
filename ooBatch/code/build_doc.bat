@@ -10,13 +10,19 @@ mkdir "%path_doc%"
 set path_3rdparty=%delphi3rdParty%
 set path_pasdoc=%path_3rdparty%\pasdoc\bin
 set path_graphviz=%path_3rdparty%\Graphviz\bin
-set app_title="ooLib"
+
+if "%1"=="" (
+  set app_title="ooLib"
+) else if not "%1"=="" (
+  set app_title="%1"
+)
 
 @echo "Creating used units files..."
 dir ..\code\*.pas /S /B > pas_doc_files.txt
 
 @echo "Build introduction..."
-call "..\..\ooBatch\code\build_readme_html.bat" ..\ introduction.html
+call %delphiooLib%"\ooBatch\code\build_readme_html.bat" ..\ introduction.html
+
 echo @html( > %path_doc%introduction.txt
 type introduction.html >> %path_doc%introduction.txt
 echo ) >> %path_doc%introduction.txt
@@ -34,7 +40,9 @@ call %path_pasdoc%\pasdoc ^
   --source pas_doc_files.txt ^
   --title %app_title% ^
   --introduction %path_doc%introduction.txt ^
-  --use-tipue-search
+  --language=es ^
+  --use-tipue-search ^
+  --include-creation-time
 
 del %path_doc%introduction.txt
 

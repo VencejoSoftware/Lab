@@ -1,8 +1,15 @@
+{$REGION 'documentation'}
 {
   Copyright (c) 2016, Vencejo Software
   Distributed under the terms of the Modified BSD License
   The full license is distributed with this software
 }
+{
+  Command to file copy
+  @created(10/02/2016)
+  @author Vencejo Software <www.vencejosoft.com>
+}
+{$ENDREGION}
 unit ooFS.Archive.Copy;
 
 interface
@@ -14,9 +21,46 @@ uses
   ooFS.Command.Intf;
 
 type
+{$REGION 'documentation'}
+{
+  @abstract(Implementation of command to file copy)
+  Copy a file into location
+}
+{$ENDREGION}
   IFSArchiveCopy = interface(IFSCommand<Boolean>)
     ['{2896C3DA-A266-4D40-82C8-C8E84C395278}']
   end;
+{$REGION 'documentation'}
+{
+  @abstract(Implementation of @link(IFSArchiveCopy))
+  @member(
+    TryCopy Try to copy file until success or max tries are reached
+    @param(Tries Actual try number to increment if not success)
+    @return(@true if success, @false if fail)
+  )
+  @member(
+    BuildDestinationFileName Create the destination file name
+    @param(FileName Source file name)
+    @param(Destination Destination file name)
+  )
+  @member(
+    Execute Run copy command
+    @return(@true if success, @false if fail)
+  )
+  @member(
+    Create Object constructor
+    @param(Archive @link(IFSArchive Source archive))
+    @param(Destination Destinarion file name)
+    @param(MaxTries Max tries for copy fail)
+  )
+  @member(
+    New Create a new @classname as interface
+    @param(Archive @link(IFSArchive Source archive))
+    @param(Destination Destinarion file name)
+    @param(MaxTries Max tries for copy fail)
+  )
+}
+{$ENDREGION}
 
   TFSArchiveCopy = class sealed(TInterfacedObject, IFSArchiveCopy)
   strict private

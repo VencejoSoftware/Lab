@@ -1,8 +1,15 @@
+{$REGION 'documentation'}
 {
   Copyright (c) 2016, Vencejo Software
   Distributed under the terms of the Modified BSD License
   The full license is distributed with this software
 }
+{
+  Command to count directories
+  @created(10/02/2016)
+  @author Vencejo Software <www.vencejosoft.com>
+}
+{$ENDREGION}
 unit ooFS.Directory.Count;
 
 interface
@@ -12,9 +19,34 @@ uses
   ooFS.Command.Intf;
 
 type
+{$REGION 'documentation'}
+{
+  @abstract(Implementation of command to count directories)
+  Calculate the amount of directories in a path
+}
+{$ENDREGION}
   IFSDirectoryCount = interface(IFSCommand<Integer>)
     ['{B416BE24-9862-418C-9D55-464FF781D74C}']
   end;
+{$REGION 'documentation'}
+{
+  @abstract(Implementation of @link(IFSDirectoryCount))
+  @member(
+    Execute Run copy command
+    @return(Integer with the counted directories)
+  )
+  @member(
+    Create Object constructor
+    @param(Directory @link(IFSDirectory Path))
+    @param(Recursively Scan recursively folders and count)
+  )
+  @member(
+    New Create a new @classname as interface
+    @param(Directory @link(IFSDirectory Path))
+    @param(Recursively Scan recursively folders and count)
+  )
+}
+{$ENDREGION}
 
   TFSDirectoryCount = class sealed(TInterfacedObject, IFSDirectoryCount)
   strict private

@@ -6,9 +6,8 @@
 program test;
 
 uses
-  FastMM4,
   ooRunTest,
-  ooDAO.DataProvider.Mock_test in '..\code\data-provider\ooDAO.DataProvider.Mock_test.pas',
+  ooDAO.DataProvider_test in '..\code\data-provider\ooDAO.DataProvider_test.pas',
   ooEntity.Mock in '..\code\mock\ooEntity.Mock.pas',
   ooMock.DataInput in '..\code\mock\ooMock.DataInput.pas',
   ooDAO.Connection.Firebird_test in '..\code\ooDAO.Connection.Firebird_test.pas',
@@ -16,8 +15,9 @@ uses
   ooDAO.Connection.ADO_test in '..\code\ooDAO.Connection.ADO_test.pas',
   ooDAO.EntityScript.Mock in '..\code\mock\ooDAO.EntityScript.Mock.pas',
   ooDAO.DataProvider.Mock in '..\code\mock\ooDAO.DataProvider.Mock.pas',
-  ooDAO.EntityScript.Mock_test in '..\code\data-provider\ooDAO.EntityScript.Mock_test.pas',
+  ooDAO.EntityScript_test in '..\code\data-provider\ooDAO.EntityScript_test.pas',
   ooDAO.DataQuery_test in '..\code\data-provider\ooDAO.DataQuery_test.pas';
+
 {$R *.RES}
 
 begin

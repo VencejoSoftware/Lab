@@ -1,8 +1,15 @@
+{$REGION 'documentation'}
 {
   Copyright (c) 2016, Vencejo Software
   Distributed under the terms of the Modified BSD License
   The full license is distributed with this software
 }
+{
+  Command to scan a file system returning archive list
+  @created(10/02/2016)
+  @author Vencejo Software <www.vencejosoft.com>
+}
+{$ENDREGION}
 unit ooFS.Archive.Scan;
 
 interface
@@ -13,9 +20,36 @@ uses
   ooFS.Entry, ooFS.Archive;
 
 type
+{$REGION 'documentation'}
+{
+  @abstract(Implementation of command to scan file system)
+  Scan specified path to return a list of archivs, using a filter mask
+}
+{$ENDREGION}
   IFSArchiveScan = interface(IFSCommand<Integer>)
     ['{719B95CE-7C05-4266-9455-1E977E492133}']
   end;
+{$REGION 'documentation'}
+{
+  @abstract(Implementation of @link(IFSArchiveScan))
+  @member(
+    Execute Run scan command
+    @return(Integer with the count of archives founded)
+  )
+  @member(
+    Create Object constructor
+    @param(Path @link(IFSEntry Path to scan))
+    @param(ArchiveList @link(TFSArchiveList List to fill with the founded archives))
+    @param(FilterMask Mask to scan filter)
+  )
+  @member(
+    New Create a new @classname as interface
+    @param(Path @link(IFSEntry Path to scan))
+    @param(ArchiveList @link(TFSArchiveList List to fill with the founded archives))
+    @param(FilterMask Mask to scan filter)
+  )
+}
+{$ENDREGION}
 
   TFSArchiveScan = class sealed(TInterfacedObject, IFSArchiveScan)
   strict private

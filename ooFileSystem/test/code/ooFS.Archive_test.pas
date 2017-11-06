@@ -43,7 +43,7 @@ implementation
 
 procedure TFSArchiveTest.EntryKindIsFile;
 begin
-  CheckTrue(TFSArchive.New(nil, '..\file_test\test.txt').Kind = ekFile);
+  CheckTrue(TFSArchive.New(nil, '..\file_test\test.txt').Kind = TFSEntryKind.Archive);
 end;
 
 procedure TFSArchiveTest.FileExtensionIsTXT;
@@ -116,13 +116,13 @@ end;
 procedure TFSArchiveTest.TestTxtChangedToHidden;
 begin
   if SetFileAttributes(PChar('..\file_test\test.txt'), FILE_ATTRIBUTE_HIDDEN) then
-    CheckTrue(TFSArchive.New(nil, '..\file_test\test.txt').Attributes = [fiaHidden]);
+    CheckTrue(TFSArchive.New(nil, '..\file_test\test.txt').Attributes = [Hidden]);
 end;
 
 procedure TFSArchiveTest.TestTxtChangedToHiddenReadOnly;
 begin
   if SetFileAttributes(PChar('..\file_test\test.txt'), FILE_ATTRIBUTE_READONLY or FILE_ATTRIBUTE_HIDDEN) then
-    CheckTrue(TFSArchive.New(nil, '..\file_test\test.txt').Attributes = [fiaReadOnly, fiaHidden]);
+    CheckTrue(TFSArchive.New(nil, '..\file_test\test.txt').Attributes = [ReadOnly, Hidden]);
 end;
 
 procedure TFSArchiveTest.TestTXTExists;

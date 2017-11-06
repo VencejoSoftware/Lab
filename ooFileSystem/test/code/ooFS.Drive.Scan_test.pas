@@ -39,7 +39,7 @@ var
   Founded: Boolean;
 begin
   Founded := False;
-  TFSDrivesScan.New(_Drives, [daFixed]).Execute;
+  TFSDrivesScan.New(_Drives, [Fixed]).Execute;
   for FSDrive in _Drives do
   begin
     Founded := CompareText(FSDrive.Path, 'C:\') = 0;
@@ -53,12 +53,12 @@ procedure TFSDrivesScanTest.CIsFixed;
 var
   FSDrive: IFSDrive;
 begin
-  TFSDrivesScan.New(_Drives, [daFixed]).Execute;
+  TFSDrivesScan.New(_Drives, [Fixed]).Execute;
   for FSDrive in _Drives do
   begin
     if CompareText(FSDrive.Path, 'C:\') = 0 then
     begin
-      CheckTrue(FSDrive.Attribute = daFixed);
+      CheckTrue(FSDrive.Attribute = Fixed);
       Break;
     end;
   end;
@@ -66,18 +66,18 @@ end;
 
 procedure TFSDrivesScanTest.DrivesKindIsDrive;
 begin
-  TFSDrivesScan.New(_Drives, [daFixed]).Execute;
-  CheckTrue(_Drives.Items[0].Kind = ekDrive);
+  TFSDrivesScan.New(_Drives, [Fixed]).Execute;
+  CheckTrue(_Drives.Items[0].Kind = TFSEntryKind.Drive);
 end;
 
 procedure TFSDrivesScanTest.ExistDrives;
 begin
-  CheckTrue(TFSDrivesScan.New(_Drives, [daFixed]).Execute > 0);
+  CheckTrue(TFSDrivesScan.New(_Drives, [Fixed]).Execute > 0);
 end;
 
 procedure TFSDrivesScanTest.IsNotEmpty;
 begin
-  TFSDrivesScan.New(_Drives, [daFixed]).Execute;
+  TFSDrivesScan.New(_Drives, [Fixed]).Execute;
   CheckFalse(_Drives.IsEmpty);
 end;
 

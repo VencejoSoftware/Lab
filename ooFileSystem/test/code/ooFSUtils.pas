@@ -41,11 +41,14 @@ end;
 
 procedure DeletePath(const Path: String);
 begin
+  try
 {$IFDEF FPC}
-  DeleteDirectory(Path, False);
+    DeleteDirectory(Path, False);
 {$ELSE}
-  TDirectory.Delete(Path, True);
+    TDirectory.Delete(Path, True);
 {$ENDIF}
+  except
+  end;
 end;
 
 procedure CreateTempArchive(const FileName: String; const Count: Integer = 1);

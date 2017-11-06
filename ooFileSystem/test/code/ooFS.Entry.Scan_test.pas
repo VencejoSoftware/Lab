@@ -43,7 +43,7 @@ begin
     TFSEntryScan.New(TFSDirectory.New(nil, '..\file_list'), EntryList, False).Execute;
     Count := 0;
     for Entry in EntryList do
-      if Entry.Kind = ekDirectory then
+      if Entry.Kind = TFSEntryKind.Directory then
         inc(Count);
     CheckEquals(4, Count);
   finally
@@ -62,7 +62,7 @@ begin
     TFSEntryScan.New(TFSDirectory.New(nil, '..\file_list'), EntryList, True).Execute;
     Count := 0;
     for Entry in EntryList do
-      if Entry.Kind = ekDirectory then
+      if Entry.Kind = TFSEntryKind.Directory then
         inc(Count);
     CheckEquals(9, Count);
   finally
@@ -94,7 +94,7 @@ begin
     TFSEntryScan.New(TFSDirectory.New(nil, '..\file_list'), EntryList, False).Execute;
     Count := 0;
     for Entry in EntryList do
-      if Entry.Kind = ekFile then
+      if Entry.Kind = TFSEntryKind.Archive then
         inc(Count);
     CheckEquals(4, Count);
   finally
@@ -113,7 +113,7 @@ begin
     TFSEntryScan.New(TFSDirectory.New(nil, '..\file_list'), EntryList, True).Execute;
     Count := 0;
     for Entry in EntryList do
-      if Entry.Kind = ekFile then
+      if Entry.Kind = TFSEntryKind.Archive then
         inc(Count);
     CheckEquals(14, Count);
   finally
@@ -132,7 +132,7 @@ begin
     TFSEntryScan.New(TFSDirectory.New(nil, '..\file_list\Directory2\'), EntryList, True, '*.none').Execute;
     Count := 0;
     for Entry in EntryList do
-      if Entry.Kind = ekFile then
+      if Entry.Kind = TFSEntryKind.Archive then
         inc(Count);
     CheckEquals(4, Count);
   finally

@@ -22,7 +22,9 @@ uses
   ooFS.Entry.Scan_test in '..\code\ooFS.Entry.Scan_test.pas',
   ooFS.Archive.InUse_test in '..\code\ooFS.Archive.InUse_test.pas',
   ooFSUtils in '..\code\ooFSUtils.pas',
-  ooFS.Directory.IsEmpty_test in '..\code\ooFS.Directory.IsEmpty_test.pas';
+  ooFS.Directory.IsEmpty_test in '..\code\ooFS.Directory.IsEmpty_test.pas',
+  ooFS.Directory.Make_test in '..\code\ooFS.Directory.Make_test.pas',
+  ooFS.Directory.Delete_test in '..\code\ooFS.Directory.Delete_test.pas';
 
 {$R *.RES}
 

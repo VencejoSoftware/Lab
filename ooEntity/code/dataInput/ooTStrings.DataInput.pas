@@ -33,7 +33,7 @@ implementation
 
 function TTStringsDataInput.ReadBoolean(const Key: IKey): Boolean;
 begin
-  Result := (ReadString(Key) = '1');
+  Result := (ReadString(Key) <> '0');
 end;
 
 function TTStringsDataInput.ReadChar(const Key: IKey): Char;

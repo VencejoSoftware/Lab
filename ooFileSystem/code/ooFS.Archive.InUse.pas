@@ -1,21 +1,51 @@
+{$REGION 'documentation'}
 {
   Copyright (c) 2016, Vencejo Software
   Distributed under the terms of the Modified BSD License
   The full license is distributed with this software
 }
+{
+  Command to check if a file is in use
+  @created(10/02/2016)
+  @author Vencejo Software <www.vencejosoft.com>
+}
+{$ENDREGION}
 unit ooFS.Archive.InUse;
 
 interface
 
 uses
-  Windows, SysUtils, Forms,
+  Windows, SysUtils,
   ooFS.Archive,
   ooFS.Command.Intf;
 
 type
+{$REGION 'documentation'}
+{
+  @abstract(Implementation of command to check if a file is in use)
+  Check if a file is opened exclusive or in use
+}
+{$ENDREGION}
   IFSArchiveInUse = interface(IFSCommand<Boolean>)
     ['{E4E10314-3233-4463-860D-9D07C003482C}']
   end;
+{$REGION 'documentation'}
+{
+  @abstract(Implementation of @link(IFSArchiveInUse))
+  @member(
+    Execute Run check in use command
+    @return(@true if the file is in use, @false if not)
+  )
+  @member(
+    Create Object constructor
+    @param(Archive @link(IFSArchive Source archive))
+  )
+  @member(
+    New Create a new @classname as interface
+    @param(Archive @link(IFSArchive Source archive))
+  )
+}
+{$ENDREGION}
 
   TFSArchiveInUse = class sealed(TInterfacedObject, IFSArchiveInUse)
   strict private
