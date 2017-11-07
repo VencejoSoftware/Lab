@@ -17,34 +17,34 @@ type
     CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopkrsyuvwxyz1234567890_-.,:;*+=!¡¿?\[]{}()#$%&/@';
   strict private
     _Size: Integer;
+    _Value: String;
   private
-    function Generate: String;
+    function Generate(const CharMap: String; const Count: Integer): String;
   public
     function Size: Integer;
     function Value: String;
     function IsEmpty: Boolean;
-
-    constructor Create(const Count: Integer);
-
+    constructor Create(const CharMap: String; const Count: Integer);
     class function New(const Count: Integer): IText;
+    class function NewWithCharMap(const CharMap: String; const Count: Integer): IText;
   end;
 
 implementation
 
-function TRandomText.Generate: String;
+function TRandomText.Generate(const CharMap: String; const Count: Integer): String;
 var
   i, ValidLen: Integer;
 begin
   Randomize;
-  ValidLen := Length(CHARS);
-  SetLength(Result, _Size);
-  for i := 1 to _Size do
-    Result[i] := CHARS[Succ(Random(ValidLen))];
+  ValidLen := Length(CharMap);
+  SetLength(Result, Count);
+  for i := 1 to Count do
+    Result[i] := CharMap[Succ(Random(ValidLen))];
 end;
 
 function TRandomText.Value: String;
 begin
-  Result := Generate;
+  Result := _Value;
 end;
 
 function TRandomText.IsEmpty: Boolean;
@@ -57,14 +57,20 @@ begin
   Result := _Size;
 end;
 
-constructor TRandomText.Create(const Count: Integer);
+constructor TRandomText.Create(const CharMap: String; const Count: Integer);
 begin
   _Size := Count;
+  _Value := Generate(CharMap, Count);
 end;
 
 class function TRandomText.New(const Count: Integer): IText;
 begin
-  Result := TRandomText.Create(Count);
+  Result := TRandomText.Create(TRandomText.CHARS, Count);
+end;
+
+class function TRandomText.NewWithCharMap(const CharMap: String; const Count: Integer): IText;
+begin
+  Result := TRandomText.Create(CharMap, Count);
 end;
 
 end.

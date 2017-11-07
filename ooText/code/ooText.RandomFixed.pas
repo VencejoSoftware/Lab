@@ -16,19 +16,22 @@ type
   strict private
   const
     CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopkrsyuvwxyz1234567890_-.,:;*+=!¡¿?\[]{}()#$%&/@';
+  strict private
+    _Value: String;
   private
-    function Generate: String;
+    function Generate(const CharMap: String): String;
   public
     function Size: Integer;
     function Value: String;
     function IsEmpty: Boolean;
-
+    constructor Create(const CharMap: String);
     class function New: IText;
+    class function NewWithCharMap(const CharMap: String): IText;
   end;
 
 implementation
 
-function TRandomTextFixed.Generate: String;
+function TRandomTextFixed.Generate(const CharMap: String): String;
 var
   i: Integer;
   Buffer: Char;
@@ -47,7 +50,7 @@ end;
 
 function TRandomTextFixed.Value: String;
 begin
-  Result := Generate;
+  Result := _Value;
 end;
 
 function TRandomTextFixed.IsEmpty: Boolean;
@@ -57,12 +60,22 @@ end;
 
 function TRandomTextFixed.Size: Integer;
 begin
-  Result := Length(CHARS);
+  Result := Length(_Value);
+end;
+
+constructor TRandomTextFixed.Create(const CharMap: String);
+begin
+  _Value := Generate(CharMap);
 end;
 
 class function TRandomTextFixed.New: IText;
 begin
-  Result := Create;
+  Result := TRandomTextFixed.Create(TRandomTextFixed.CHARS);
+end;
+
+class function TRandomTextFixed.NewWithCharMap(const CharMap: String): IText;
+begin
+  Result := TRandomTextFixed.Create(CharMap);
 end;
 
 end.
