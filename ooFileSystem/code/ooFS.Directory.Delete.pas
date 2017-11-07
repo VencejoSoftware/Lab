@@ -80,9 +80,9 @@ implementation
 function TFSDirectoryDelete.TryDelete(const Tries: Byte): Boolean;
 begin
 {$IFDEF fpc}
-  DeleteDirectory(_Directory.Path, False);
+  DeleteDirectory(_Directory.Path, True);
 {$ELSE}
-  TDirectory.Delete(_Directory.Path);
+  TDirectory.Delete(_Directory.Path, True);
 {$ENDIF}
   Result := not DirectoryExists(_Directory.Path);
   if not Result and (Tries < _MaxTries) then

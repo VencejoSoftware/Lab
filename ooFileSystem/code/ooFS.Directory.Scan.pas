@@ -97,7 +97,7 @@ begin
       repeat
         if IsRealDirectory(SearchRec.Name) then
         begin
-          Directory := TFSDirectory.New(Path, Path.Path + SearchRec.Name);
+          Directory := TFSDirectory.New(Path.Path + SearchRec.Name);
           DirectoryList.Add(Directory);
           if Recursively then
             ScanPath(Directory, DirectoryList, Recursively);

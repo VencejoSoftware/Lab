@@ -24,7 +24,8 @@ uses
   ooFSUtils in '..\code\ooFSUtils.pas',
   ooFS.Directory.IsEmpty_test in '..\code\ooFS.Directory.IsEmpty_test.pas',
   ooFS.Directory.Make_test in '..\code\ooFS.Directory.Make_test.pas',
-  ooFS.Directory.Delete_test in '..\code\ooFS.Directory.Delete_test.pas';
+  ooFS.Directory.Delete_test in '..\code\ooFS.Directory.Delete_test.pas',
+  ooFS.Directory.Absolute_test in '..\code\ooFS.Directory.Absolute_test.pas';
 
 {R *.RES}
 

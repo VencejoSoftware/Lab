@@ -17,7 +17,7 @@ interface
 uses
   Windows, SysUtils,
   Generics.Collections,
-  ooFS.Entry, ooFS.Drive;
+  ooFS.Entry;
 
 type
 {$REGION 'documentation'}
@@ -26,10 +26,6 @@ type
   @member(
     Parent Directory parent path
     @return(@link(IFSEntry parent object))
-  )
-  @member(
-    AbsolutePath Full directory path
-    @return(String with the absolute path)
   )
   @member(
     Creation Return creation datetime
@@ -48,7 +44,6 @@ type
   IFSDirectory = interface(IFSEntry)
     ['{7C577776-8DEA-4CB1-A20F-CF04A99174B1}']
     function Parent: IFSEntry;
-    function AbsolutePath: String;
     function Creation: TDateTime;
     function Modified: TDateTime;
     function Exists: Boolean;
@@ -60,9 +55,9 @@ type
   @member(Path @seealso(IFSEntry.Path))
   @member(Kind @seealso(IFSEntry.Kind))
   @member(Parent @seealso(IFSDirectory.Parent))
-  @member(AbsolutePath @seealso(IFSDirectory.AbsolutePath))
   @member(Creation @seealso(IFSDirectory.Creation))
   @member(Modified @seealso(IFSDirectory.Modified))
+  @member(Exists @seealso(IFSDirectory.Exists))
   @member(Exists @seealso(IFSDirectory.Exists))
   @member(
     Create Object constructor
@@ -70,7 +65,7 @@ type
     @param(Path Directory path)
   )
   @member(
-    New Create a new @classname as interface
+    NewWithParent Create a new @classname as interface
     @param(Parent @link(IFSEntry Parent object))
     @param(Path Directory path)
   )
@@ -81,18 +76,16 @@ type
   strict private
     _Parent: IFSEntry;
     _FSEntry: IFSEntry;
-  private
-    function BuildParent: IFSEntry;
   public
     function Path: String;
-    function AbsolutePath: String;
     function Kind: TFSEntryKind;
     function Parent: IFSEntry;
     function Creation: TDateTime;
     function Modified: TDateTime;
     function Exists: Boolean;
     constructor Create(const Parent: IFSEntry; const Path: String);
-    class function New(const Parent: IFSEntry; const Path: String): IFSDirectory;
+    class function New(const Path: String): IFSDirectory;
+    class function NewWithParent(const Parent: IFSEntry; const Path: String): IFSDirectory;
   end;
 {$REGION 'documentation'}
 {
@@ -113,7 +106,7 @@ implementation
 
 function TFSDirectory.Path: String;
 begin
-  Result := _FSEntry.Path;
+  Result := Parent.Path + _FSEntry.Path
 end;
 
 function TFSDirectory.Kind: TFSEntryKind;
@@ -121,32 +114,10 @@ begin
   Result := _FSEntry.Kind;
 end;
 
-function TFSDirectory.AbsolutePath: String;
-begin
-  if Exists then
-    Result := ExpandFileName(_FSEntry.Path)
-  else
-    Result := _FSEntry.Path;
-end;
-
-function TFSDirectory.BuildParent: IFSEntry;
-var
-  ParentPath: String;
-  Drive: IFSDrive;
-begin
-  Result := nil;
-  if Length(AbsolutePath) > 1 then
-  begin
-    Drive := TFSDrive.New(ExtractFileDrive(AbsolutePath), Unknown);
-    ParentPath := ExtractRelativePath(Drive.Path, ExtractFilePath(ExcludeTrailingPathDelimiter(AbsolutePath)));
-    Result := TFSDirectory.New(Drive, ParentPath);
-  end;
-end;
-
 function TFSDirectory.Parent: IFSEntry;
 begin
   if not Assigned(_Parent) then
-    _Parent := BuildParent;
+    _Parent := TFSEntry.New(EmptyStr, TFSEntryKind.Unknown);
   Result := _Parent;
 end;
 
@@ -187,7 +158,12 @@ begin
   _Parent := Parent;
 end;
 
-class function TFSDirectory.New(const Parent: IFSEntry; const Path: String): IFSDirectory;
+class function TFSDirectory.New(const Path: String): IFSDirectory;
+begin
+  Result := TFSDirectory.Create(nil, Path);
+end;
+
+class function TFSDirectory.NewWithParent(const Parent: IFSEntry; const Path: String): IFSDirectory;
 begin
   Result := TFSDirectory.Create(Parent, Path);
 end;

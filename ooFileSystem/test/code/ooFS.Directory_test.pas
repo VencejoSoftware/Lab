@@ -26,40 +26,36 @@ type
     procedure DirectoryPathIsDirectoryTest;
     procedure EntryKindIsDirectory;
     procedure ExistsDirectory_test;
-    procedure NonExistsDirectory_test1;
     procedure CreatedToday;
     procedure ModifiedNow;
-    procedure ParentPathNotExists;
-    procedure ParentPathExists;
-    procedure ParentPathDefinedExists;
-    procedure ParentPathDefinedNotExists;
-    procedure PathResolved;
-    procedure AbsolutePathExists;
-    procedure AbsolutePathNotExists;
+    procedure NilParentIsEmpty;
+    procedure ParentAssignedHasSomeValue;
+    procedure DriveParentAssignedHasC;
+    procedure ParentWith2LevelsAssignedHasSomeValue;
   end;
 
 implementation
 
+procedure TFSDirectoryTest.DirectoryPathIsDirectoryTest;
+begin
+  CheckEquals('..\Directory_test\', TFSDirectory.New('..\Directory_test').Path);
+end;
+
 procedure TFSDirectoryTest.EntryKindIsDirectory;
 begin
-  CheckTrue(TFSDirectory.New(nil, '..\Directory_test').Kind = TFSEntryKind.Directory);
+  CheckTrue(TFSDirectory.New('..\Directory_test').Kind = TFSEntryKind.Directory);
 end;
 
 procedure TFSDirectoryTest.ExistsDirectory_test;
 begin
-  CheckTrue(TFSDirectory.New(nil, '..\Directory_test').Exists);
-end;
-
-procedure TFSDirectoryTest.DirectoryPathIsDirectoryTest;
-begin
-  CheckEquals('..\Directory_test\', TFSDirectory.New(nil, '..\Directory_test').Path);
+  CheckTrue(TFSDirectory.New('..\Directory_test').Exists);
 end;
 
 procedure TFSDirectoryTest.CreatedToday;
 var
   Directory: IFSDirectory;
 begin
-  Directory := TFSDirectory.New(nil, '..\Directory_test');
+  Directory := TFSDirectory.New('..\Directory_test');
   CheckEquals(Date, Trunc(Directory.Creation));
 end;
 
@@ -67,73 +63,39 @@ procedure TFSDirectoryTest.ModifiedNow;
 var
   Directory: IFSDirectory;
 begin
-  Directory := TFSDirectory.New(nil, '..\Directory_test');
+  Directory := TFSDirectory.New('..\Directory_test');
   CheckEquals(FormatDateTime('ddmmyyyyhhmmss', Now), FormatDateTime('ddmmyyyyhhmmss', Directory.Modified));
 end;
 
-procedure TFSDirectoryTest.PathResolved;
+procedure TFSDirectoryTest.NilParentIsEmpty;
 begin
-  CheckEquals('..\Directory_test1\', TFSDirectory.New(nil, '..\Directory_test1').Path);
+  CheckEquals(EmptyStr, TFSDirectory.New('..\Directory_test').Parent.Path);
 end;
 
-procedure TFSDirectoryTest.ParentPathNotExists;
-begin
-  CheckEquals('..\', TFSDirectory.New(nil, 'folder_test99').Parent.Path);
-end;
-
-procedure TFSDirectoryTest.ParentPathExists;
+procedure TFSDirectoryTest.ParentAssignedHasSomeValue;
 var
-  ParentPath: String;
-  Directory: IFSDirectory;
-begin
-  Directory := TFSDirectory.New(nil, '..\Directory_test');
-  ParentPath := IncludeTrailingPathDelimiter(ExtractFilePath(ParamStr(0)));
-  ParentPath := ExpandFileName(ParentPath + '..\');
-  ParentPath := ExtractRelativePath(ExtractFileDrive(ParentPath), ParentPath);
-  CheckEquals(ParentPath, Directory.Parent.Path);
-end;
-
-procedure TFSDirectoryTest.ParentPathDefinedNotExists;
-var
-  ParentPath: String;
   Parent: IFSDirectory;
 begin
-  ParentPath := IncludeTrailingPathDelimiter(ExtractFilePath(ParamStr(0)));
-  ParentPath := ExpandFileName(ParentPath + '..\');
-  ParentPath := ExtractRelativePath(ExtractFileDrive(ParentPath), ParentPath);
-  Parent := TFSDirectory.New(TFSDrive.New(ExtractFileDrive(ExtractFilePath(ParamStr(0))), Unknown), ParentPath);
-  CheckEquals('..\..\', TFSDirectory.New(nil, '..\not_exists').Parent.Path);
+  Parent := TFSDirectory.New('C:\Test\');
+  CheckEquals('C:\Test\..\Directory_test\', TFSDirectory.NewWithParent(Parent, '..\Directory_test').Path);
 end;
 
-procedure TFSDirectoryTest.ParentPathDefinedExists;
+procedure TFSDirectoryTest.DriveParentAssignedHasC;
 var
-  ParentPath: String;
-  Parent: IFSDirectory;
+  Parent: IFSDrive;
 begin
-  ParentPath := IncludeTrailingPathDelimiter(ExtractFilePath(ParamStr(0)));
-  ParentPath := ExpandFileName(ParentPath + '..\');
-  ParentPath := ExtractRelativePath(ExtractFileDrive(ParentPath), ParentPath);
-  Parent := TFSDirectory.New(TFSDrive.New(ExtractFileDrive(ExtractFilePath(ParamStr(0))), Unknown), ParentPath);
-  CheckEquals(ParentPath, TFSDirectory.New(nil, '..\Directory_test').Parent.Path);
+  Parent := TFSDrive.New('C', Unknown);
+  CheckEquals('C:\..\Directory_test\', TFSDirectory.NewWithParent(Parent, '..\Directory_test').Path);
 end;
 
-procedure TFSDirectoryTest.NonExistsDirectory_test1;
-begin
-  CheckFalse(TFSDirectory.New(nil, '..\Directory_test1').Exists);
-end;
-
-procedure TFSDirectoryTest.AbsolutePathExists;
+procedure TFSDirectoryTest.ParentWith2LevelsAssignedHasSomeValue;
 var
-  ParentPath: String;
+  Parent1, Parent2: IFSDirectory;
 begin
-  ParentPath := IncludeTrailingPathDelimiter(ExtractFilePath(ParamStr(0)));
-  ParentPath := ExpandFileName(ParentPath + '..\Directory_test\');
-  CheckEquals(ParentPath, TFSDirectory.New(nil, '..\Directory_test').AbsolutePath);
-end;
-
-procedure TFSDirectoryTest.AbsolutePathNotExists;
-begin
-  CheckEquals('..\not_exists\', TFSDirectory.New(nil, '..\not_exists').AbsolutePath);
+  Parent1 := TFSDirectory.New('C:\Test\');
+  Parent2 := TFSDirectory.NewWithParent(Parent1, 'level2\something');
+  CheckEquals('C:\Test\level2\something\..\Directory_test\', TFSDirectory.NewWithParent(Parent2,
+      '..\Directory_test').Path);
 end;
 
 procedure TFSDirectoryTest.SetUp;

@@ -119,7 +119,7 @@ begin
       repeat
         if IsFolder(SearchRec) then
         begin
-          Entry := TFSDirectory.New(Path, Path.Path + SearchRec.Name);
+          Entry := TFSDirectory.New(Path.Path + SearchRec.Name);
           EntryList.Add(Entry);
           if Recursively then
             ScanPath(Entry, EntryList, Recursively, FilterMask);

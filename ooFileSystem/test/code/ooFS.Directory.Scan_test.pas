@@ -36,7 +36,7 @@ var
 begin
   DirectoryList := TFSDirectoryList.Create;
   try
-    CheckEquals(3, TFSDirectoryScan.New(TFSDirectory.New(nil, '..\Directory_test'), DirectoryList, False).Execute);
+    CheckEquals(3, TFSDirectoryScan.New(TFSDirectory.New('..\Directory_test'), DirectoryList, False).Execute);
   finally
     DirectoryList.Free;
   end;
@@ -48,7 +48,7 @@ var
 begin
   DirectoryList := TFSDirectoryList.Create;
   try
-    CheckEquals(5, TFSDirectoryScan.New(TFSDirectory.New(nil, '..\Directory_test'), DirectoryList, True).Execute);
+    CheckEquals(5, TFSDirectoryScan.New(TFSDirectory.New('..\Directory_test'), DirectoryList, True).Execute);
   finally
     DirectoryList.Free;
   end;
@@ -60,7 +60,7 @@ var
 begin
   DirectoryList := TFSDirectoryList.Create;
   try
-    TFSDirectoryScan.New(TFSDirectory.New(nil, '..\Directory_test'), DirectoryList, True).Execute;
+    TFSDirectoryScan.New(TFSDirectory.New('..\Directory_test'), DirectoryList, True).Execute;
     CheckFalse(DirectoryList.IsEmpty);
   finally
     DirectoryList.Free;

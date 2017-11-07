@@ -32,6 +32,31 @@ type
 
 implementation
 
+procedure TFSDirectoryCountTest.File_ListDirectory2Has2Directory;
+begin
+  CheckEquals(2, TFSDirectoryCount.New(TFSDirectory.New('..\file_list\Directory2'), False).Execute);
+end;
+
+procedure TFSDirectoryCountTest.File_ListDirectory3HasNone;
+begin
+  CheckEquals(0, TFSDirectoryCount.New(TFSDirectory.New('..\file_list\Directory3'), False).Execute);
+end;
+
+procedure TFSDirectoryCountTest.File_ListDirectory4HasNone;
+begin
+  CheckEquals(0, TFSDirectoryCount.New(TFSDirectory.New('..\file_list\Directory4'), False).Execute);
+end;
+
+procedure TFSDirectoryCountTest.File_ListHas4Directory;
+begin
+  CheckEquals(4, TFSDirectoryCount.New(TFSDirectory.New('..\file_list'), False).Execute);
+end;
+
+procedure TFSDirectoryCountTest.Directory2RecursiveHas3;
+begin
+  CheckEquals(3, TFSDirectoryCount.New(TFSDirectory.New('..\file_list\Directory2'), True).Execute);
+end;
+
 procedure TFSDirectoryCountTest.SetUp;
 begin
   inherited;
@@ -49,31 +74,6 @@ procedure TFSDirectoryCountTest.TearDown;
 begin
   inherited;
   DeletePath('..\file_list');
-end;
-
-procedure TFSDirectoryCountTest.File_ListDirectory2Has2Directory;
-begin
-  CheckEquals(2, TFSDirectoryCount.New(TFSDirectory.New(nil, '..\file_list\Directory2'), False).Execute);
-end;
-
-procedure TFSDirectoryCountTest.File_ListDirectory3HasNone;
-begin
-  CheckEquals(0, TFSDirectoryCount.New(TFSDirectory.New(nil, '..\file_list\Directory3'), False).Execute);
-end;
-
-procedure TFSDirectoryCountTest.File_ListDirectory4HasNone;
-begin
-  CheckEquals(0, TFSDirectoryCount.New(TFSDirectory.New(nil, '..\file_list\Directory4'), False).Execute);
-end;
-
-procedure TFSDirectoryCountTest.File_ListHas4Directory;
-begin
-  CheckEquals(4, TFSDirectoryCount.New(TFSDirectory.New(nil, '..\file_list'), False).Execute);
-end;
-
-procedure TFSDirectoryCountTest.Directory2RecursiveHas3;
-begin
-  CheckEquals(3, TFSDirectoryCount.New(TFSDirectory.New(nil, '..\file_list\Directory2'), True).Execute);
 end;
 
 initialization

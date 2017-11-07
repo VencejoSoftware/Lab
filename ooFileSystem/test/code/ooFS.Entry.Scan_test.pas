@@ -40,7 +40,7 @@ var
 begin
   EntryList := TFSEntryList.Create;
   try
-    TFSEntryScan.New(TFSDirectory.New(nil, '..\file_list'), EntryList, False).Execute;
+    TFSEntryScan.New(TFSDirectory.New('..\file_list'), EntryList, False).Execute;
     Count := 0;
     for Entry in EntryList do
       if Entry.Kind = TFSEntryKind.Directory then
@@ -59,7 +59,7 @@ var
 begin
   EntryList := TFSEntryList.Create;
   try
-    TFSEntryScan.New(TFSDirectory.New(nil, '..\file_list'), EntryList, True).Execute;
+    TFSEntryScan.New(TFSDirectory.New('..\file_list'), EntryList, True).Execute;
     Count := 0;
     for Entry in EntryList do
       if Entry.Kind = TFSEntryKind.Directory then
@@ -76,7 +76,7 @@ var
 begin
   EntryList := TFSEntryList.Create;
   try
-    TFSEntryScan.New(TFSDirectory.New(nil, '..\file_list'), EntryList, False).Execute;
+    TFSEntryScan.New(TFSDirectory.New('..\file_list'), EntryList, False).Execute;
     CheckFalse(EntryList.IsEmpty);
   finally
     EntryList.Free;
@@ -91,7 +91,7 @@ var
 begin
   EntryList := TFSEntryList.Create;
   try
-    TFSEntryScan.New(TFSDirectory.New(nil, '..\file_list'), EntryList, False).Execute;
+    TFSEntryScan.New(TFSDirectory.New('..\file_list'), EntryList, False).Execute;
     Count := 0;
     for Entry in EntryList do
       if Entry.Kind = TFSEntryKind.Archive then
@@ -110,7 +110,7 @@ var
 begin
   EntryList := TFSEntryList.Create;
   try
-    TFSEntryScan.New(TFSDirectory.New(nil, '..\file_list'), EntryList, True).Execute;
+    TFSEntryScan.New(TFSDirectory.New('..\file_list'), EntryList, True).Execute;
     Count := 0;
     for Entry in EntryList do
       if Entry.Kind = TFSEntryKind.Archive then
@@ -129,7 +129,7 @@ var
 begin
   EntryList := TFSEntryList.Create;
   try
-    TFSEntryScan.New(TFSDirectory.New(nil, '..\file_list\Directory2\'), EntryList, True, '*.none').Execute;
+    TFSEntryScan.New(TFSDirectory.New('..\file_list\Directory2\'), EntryList, True, '*.none').Execute;
     Count := 0;
     for Entry in EntryList do
       if Entry.Kind = TFSEntryKind.Archive then

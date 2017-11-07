@@ -29,14 +29,14 @@ implementation
 procedure TFSDirectoryDeleteTest.DeleteExists;
 begin
   CreatePath('..\Directory_test');
-  CheckTrue(TFSDirectoryDelete.New(TFSDirectory.New(nil, '..\Directory_test')).Execute);
-  CheckFalse(TFSDirectory.New(nil, '..\Directory_test').Exists);
+  CheckTrue(TFSDirectoryDelete.New(TFSDirectory.New('..\Directory_test')).Execute);
+  CheckFalse(TFSDirectory.New('..\Directory_test').Exists);
 end;
 
 procedure TFSDirectoryDeleteTest.DeleteNotExists;
 begin
   DeletePath('..\Directory_test');
-  CheckFalse(TFSDirectoryDelete.New(TFSDirectory.New(nil, '..\Directory_test')).Execute);
+  CheckFalse(TFSDirectoryDelete.New(TFSDirectory.New('..\Directory_test')).Execute);
 end;
 
 initialization

@@ -35,7 +35,7 @@ var
 begin
   Files := TFSArchiveList.Create;
   try
-    TFSArchiveScan.New(TFSDirectory.New(nil, '..\file_list\Directory2\'), Files).Execute;
+    TFSArchiveScan.New(TFSDirectory.New('..\file_list\Directory2\'), Files).Execute;
     CheckEquals(4, Files.Count);
   finally
     Files.Free;
@@ -48,7 +48,7 @@ var
 begin
   Files := TFSArchiveList.Create;
   try
-    TFSArchiveScan.New(TFSDirectory.New(nil, '..\file_list\Directory4'), Files).Execute;
+    TFSArchiveScan.New(TFSDirectory.New('..\file_list\Directory4'), Files).Execute;
     CheckTrue(Files.IsEmpty, 'file_list\Directory4 is not empty');
   finally
     Files.Free;

@@ -152,7 +152,7 @@ implementation
 
 function TFSArchive.Path: String;
 begin
-  Result := _FSEntry.Path;
+  Result := Parent.Path + _FSEntry.Path
 end;
 
 function TFSArchive.Kind: TFSEntryKind;
@@ -162,8 +162,6 @@ end;
 
 function TFSArchive.Parent: IFSEntry;
 begin
-  if not Assigned(_Parent) then
-    _Parent := TFSDirectory.New(nil, ExtractFilePath(Path));
   Result := _Parent;
 end;
 
@@ -188,16 +186,13 @@ function TFSArchive.Size: Integer;
 var
   FileHandle: file of Byte;
 begin
+  Result := - 1;
+  AssignFile(FileHandle, Path);
   try
-    AssignFile(FileHandle, Path);
-    try
-      Reset(FileHandle);
-      Result := FileSize(FileHandle);
-    finally
-      CloseFile(FileHandle);
-    end;
-  except
-    Result := - 1;
+    Reset(FileHandle);
+    Result := FileSize(FileHandle);
+  finally
+    CloseFile(FileHandle);
   end;
 end;
 
@@ -254,8 +249,11 @@ end;
 
 constructor TFSArchive.Create(const Parent: IFSEntry; const Path: String);
 begin
-  _FSEntry := TFSEntry.New(Path, TFSEntryKind.Archive);
-  _Parent := Parent;
+  _FSEntry := TFSEntry.New(ExtractFileName(Path), TFSEntryKind.Archive);
+  if Assigned(Parent) then
+    _Parent := Parent
+  else
+    _Parent := TFSDirectory.New(ExtractFilePath(Path));
 end;
 
 class function TFSArchive.New(const Parent: IFSEntry; const Path: String): IFSArchive;

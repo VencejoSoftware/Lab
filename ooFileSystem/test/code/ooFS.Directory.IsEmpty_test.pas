@@ -31,14 +31,14 @@ implementation
 
 procedure TFSDirectoryIsEmptyTest.TempFSDirectoryIsEmpty;
 begin
-  CheckTrue(TFSDirectoryIsEmpty.New(TFSDirectory.New(nil, '..\file_list')).Execute);
+  CheckTrue(TFSDirectoryIsEmpty.New(TFSDirectory.New('..\file_list')).Execute);
 end;
 
 procedure TFSDirectoryIsEmptyTest.TempDirectoryWithFileIsNotIsEmpty;
 begin
   CreateTempArchive('..\file_list\test.txt');
   try
-    CheckFalse(TFSDirectoryIsEmpty.New(TFSDirectory.New(nil, '..\file_list')).Execute);
+    CheckFalse(TFSDirectoryIsEmpty.New(TFSDirectory.New('..\file_list')).Execute);
   finally
     DeleteArchive('..\file_list\test.txt');
   end;
