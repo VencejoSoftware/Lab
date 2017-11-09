@@ -13,7 +13,7 @@ uses
   ooOS.Info.Intf;
 
 type
-  TOSComputerName = class(TInterfacedObject, IOSInfo)
+  TOSComputerName = class sealed(TInterfacedObject, IOSInfo)
   public
     function Value: string;
     class function New: IOSInfo;

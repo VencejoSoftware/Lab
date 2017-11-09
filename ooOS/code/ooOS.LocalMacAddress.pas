@@ -13,7 +13,7 @@ uses
   ooOS.Info.Intf;
 
 type
-  TOSLocalMacAddress = class(TInterfacedObject, IOSInfo)
+  TOSLocalMacAddress = class sealed(TInterfacedObject, IOSInfo)
   public
     function Value: string;
     class function New: IOSInfo;
@@ -22,7 +22,7 @@ type
 implementation
 
 function SendArp(DestIP, SrcIP: ULONG; pMacAddr: Pointer; PhyAddrLen: Pointer): DWord; StdCall;
-external 'iphlpapi.dll' name 'SendARP';
+  external 'iphlpapi.dll' name 'SendARP';
 
 function TOSLocalMacAddress.Value: string;
 type
@@ -35,8 +35,7 @@ var
   RPCRTHandle: THandle;
   MacID: TMacID;
   I: ShortInt;
-  fnCreateUuid: function(var FuncGetMacID: TMacID): HResult;
-stdcall;
+  fnCreateUuid: function(var FuncGetMacID: TMacID): HResult; stdcall;
 
   function GetProcName: {$IFDEF FPC}LPCSTR{$ELSE}LPCWSTR{$ENDIF};
   var

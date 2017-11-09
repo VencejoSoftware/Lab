@@ -13,7 +13,7 @@ uses
   ooOS.Info.Intf;
 
 type
-  TOSRemoteMacAddress = class(TInterfacedObject, IOSInfo)
+  TOSRemoteMacAddress = class sealed(TInterfacedObject, IOSInfo)
   strict private
     _IP: String;
   private
@@ -27,7 +27,7 @@ type
 implementation
 
 function SendArp(DestIP, SrcIP: ULONG; pMacAddr: Pointer; PhyAddrLen: Pointer): DWord; StdCall;
-external 'iphlpapi.dll' name 'SendARP';
+  external 'iphlpapi.dll' name 'SendARP';
 
 function TOSRemoteMacAddress.RemoteMacAddress(const IP: RawByteString): String;
 const

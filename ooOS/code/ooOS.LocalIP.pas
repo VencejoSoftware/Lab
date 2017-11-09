@@ -13,7 +13,7 @@ uses
   ooOS.Info.Intf;
 
 type
-  TOSLocalIP = class(TInterfacedObject, IOSInfo)
+  TOSLocalIP = class sealed(TInterfacedObject, IOSInfo)
   public
     function Value: string;
     class function New: IOSInfo;

@@ -13,7 +13,7 @@ uses
   ooOS.Info.Intf;
 
 type
-  TOSUserName = class(TInterfacedObject, IOSInfo)
+  TOSUserName = class sealed(TInterfacedObject, IOSInfo)
   public
     function Value: string;
     class function New: IOSInfo;
