@@ -107,7 +107,7 @@ begin
   _CriticalSection := TCriticalSection.Create;
   _FileNameTemplate := FileNameTemplate;
   _LogTemplate := LogTemplate;
-  ChangeFilter([llDebug, llInfo, llWarning, llError]);
+  ChangeFilter([Debug, Info, Warning, Error]);
 end;
 
 destructor TTextFileLogger.Destroy;

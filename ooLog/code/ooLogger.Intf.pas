@@ -8,7 +8,7 @@ unit ooLogger.Intf;
 interface
 
 type
-  TLogLevel = (llDebug, llInfo, llWarning, llError);
+  TLogLevel = (Debug, Info, Warning, Error);
   TLogLevelFilter = set of TLogLevel;
 
   ILogger = interface

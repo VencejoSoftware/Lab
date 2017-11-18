@@ -62,22 +62,22 @@ end;
 
 procedure TLogActor.LogInfo(const Text: String);
 begin
-  WriteLog(Text, llInfo);
+  WriteLog(Text, Info);
 end;
 
 procedure TLogActor.LogDebug(const Text: String);
 begin
-  WriteLog(Text, llDebug);
+  WriteLog(Text, Debug);
 end;
 
 procedure TLogActor.LogWarning(const Text: String);
 begin
-  WriteLog(Text, llWarning);
+  WriteLog(Text, Warning);
 end;
 
 procedure TLogActor.LogError(const Error: Exception; const RaiseException: Boolean);
 begin
-  WriteLog(Error.Message, llError);
+  WriteLog(Error.Message, TLogLevel.Error);
   if RaiseException then
     raise ExceptClass(Error.ClassType).Create(Error.Message);
 end;
